@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>heyam - Daristana Peyvan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    
+<style>
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #222;
+        overflow: scroll;
+    }
+
+    body::-webkit-scrollbar {
+    display: none;
+    }
+    .navbar {
+        background: #203a3d;
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        background: rgba(255, 255, 255, 0.5); 
+    }
+    .footer {
+        text-align:center;
+        padding: 30px 0;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #31595E;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        h1 { font-size: 42px; }
+        .wordtype { font-style: italic; color: gray; font-size: 18px; margin-bottom: 20px; }
+        p { font-size: 22px; line-height: 1.6em; }
+        .extra {
+            margin-top: 30px;
+            font-size: 18px;
+            background: #1f3a3d17;
+            padding: 15px;
+            border-left: 5px solid #1f3a3d;
+            border-radius: 24px;
+            color: #222;
+        }
+        .copy-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+      color: #365e58;
+    }
+
+    .copy-btn:hover {
+      color: #203a3d;
+    }
+
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="../index.html" style="text-decoration: none; color: #e6e6e6; font-size: 16px; font-weight: bold;">Ana Sayfa</a>
+    </div>
+    <div class="container">
+    <div class="title-bar">
+        <h1>heyam</h1>
+        <button class="copy-btn" onclick="copyPageUrl()" title="Bağlantıyı Kopyala"><img src="../copy.svg" alt="Kopyala" width="24" height="24"><span class="checkmark" style="display:none;">✅</span></button>
+        </div>
+        <div class="wordtype"> isim</div>
+        <p> "dönem</p>
+        <div class="extra"> çağ"</div>
+    </div>
+    <div class="footer">
+        <a href="../hakkinda.html">Hakkında</a> |
+        <a href="../iletisim.html">İletişim</a>
+    </div>
+
+    <script>
+    // kopyalama fonksiyonu
+     function copyPageUrl() {
+    const url = window.location.href;
+    const checkmark = document.querySelector('.copy-btn .checkmark');
+    // tarayıcılar için uyumluluk ve kullanıcı geri bildirimleri
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(() => {
+        showCheckmark();
+      }).catch(() => {
+        fallbackCopy(url);
+        showCheckmark();
+      });
+    } else {
+      fallbackCopy(url);
+      showCheckmark();
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showCheckmark() {
+      checkmark.style.display = 'inline';
+      setTimeout(() => {
+        checkmark.style.display = 'none';
+      }, 1000);
+    }
+  }
+  </script>
+</body>
+</html>

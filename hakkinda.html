@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hakkında</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../favicon.svg" type="image/xml+svg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -72,4 +73,13 @@
         <p>Bu proje açık kaynak kodludur. Projenin kaynak kodlarına ve ana sayfasına ulaşmak için:  <a href='https://github.com/projectxurme/projectxurme.github.io'>Proje Ana Sayfası - GitHub</a></p>
     </div>
 </body>
+<script>
+   if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker kaydı başarısız:', error);
+    });
+  }
+</script>
 </html>

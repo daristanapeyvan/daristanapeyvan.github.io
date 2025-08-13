@@ -5,6 +5,7 @@
     <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük hizmeti sağlar...">
     <meta name="keywords" content="Kürtçe-Türkçe, Sözlük">
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -152,6 +153,13 @@
             const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
             document.getElementById("suggested_word").innerHTML = link;
         }
+           if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker kaydı başarısız:', error);
+    });
+  }
     </script>
 </body>
 </html>

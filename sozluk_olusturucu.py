@@ -86,6 +86,7 @@ for data in all_data:
     <meta charset="UTF-8">
     <title>{kurdish} - Daristana Peyvan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     {joint_css}
     <style>
@@ -180,6 +181,14 @@ for data in all_data:
       }}, 1000);
     }}
   }}
+
+   if ('serviceWorker' in navigator) {{
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {{
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }}).catch(function(error) {{
+      console.log('Service Worker kaydı başarısız:', error);
+    }});
+  }}
   </script>
 </body>
 </html>""")
@@ -199,6 +208,7 @@ with open(index_path, "w", encoding="utf-8") as index:
     <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük hizmeti sağlar...">
     <meta name="keywords" content="Kürtçe-Türkçe, Sözlük">
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
@@ -295,6 +305,13 @@ with open(index_path, "w", encoding="utf-8") as index:
             const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
             document.getElementById("suggested_word").innerHTML = link;
         }}
+           if ('serviceWorker' in navigator) {{
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {{
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }}).catch(function(error) {{
+      console.log('Service Worker kaydı başarısız:', error);
+    }});
+  }}
     </script>
 </body>
 </html>""")
@@ -310,6 +327,7 @@ for page, title, content, extracontent in [
 <head>
     <meta charset="UTF-8">
     <title>{title}</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../favicon.svg" type="image/xml+svg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
@@ -328,4 +346,61 @@ for page, title, content, extracontent in [
         <p>{extracontent}</p>
     </div>
 </body>
+<script>
+   if ('serviceWorker' in navigator) {{
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {{
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }}).catch(function(error) {{
+      console.log('Service Worker kaydı başarısız:', error);
+    }});
+  }}
+</script>
 </html>""")
+
+# manifest.json oluştur
+manifest_json = {
+    "name": "Daristana Peyvan",
+    "short_name": "Sözlük",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#f4f4f4",
+    "theme_color": "#203a3d",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
+
+import json
+with open(os.path.join(base_dir, "manifest.json"), "w", encoding="utf-8") as mf:
+    json.dump(manifest_json, mf, ensure_ascii=False, indent=2)
+
+# service-worker.js oluştur
+with open(os.path.join(base_dir, "service-worker.js"), "w", encoding="utf-8") as sw:
+    sw.write("""self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('sozluk-cache').then(function(cache) {
+      return cache.addAll([
+        '/index.html',
+        '/style.css',
+        '/all_data.js'
+      ]);
+    })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
+  );
+});""")

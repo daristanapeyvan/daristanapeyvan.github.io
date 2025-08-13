@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>porteqal - Daristana Peyvan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     
 <style>
@@ -100,8 +101,8 @@
         <h1>porteqal</h1>
         <button class="copy-btn" onclick="copyPageUrl()" title="Bağlantıyı Kopyala"><img src="../copy.svg" alt="Kopyala" width="24" height="24"><span class="checkmark" style="display:none;">✅</span></button>
         </div>
-        <div class="wordtype"> isim</div>
-        <p> portakal</p>
+        <div class="wordtype">nav - isim</div>
+        <p>portakal</p>
         <div class="extra"></div>
     </div>
     <div class="footer">
@@ -148,6 +149,14 @@
         checkmark.style.display = 'none';
       }, 1000);
     }
+  }
+
+   if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+      console.log('Service Worker kayıtlı:', registration.scope);
+    }).catch(function(error) {
+      console.log('Service Worker kaydı başarısız:', error);
+    });
   }
   </script>
 </body>

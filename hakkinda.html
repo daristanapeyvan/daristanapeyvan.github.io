@@ -15,17 +15,18 @@
         color: #222;
         overflow: scroll;
     }
-
     body::-webkit-scrollbar {
-    display: none;
+        display: none;
     }
     .navbar {
-        background: #203a3d;
-        color: white;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    background: #203a3d;
+    color: white;
+    padding: 15px 30px; /* padding artırıldı */
+    display: flex;
+    justify-content: space-between; /* center → space-between */
+    align-items: center;
+    flex-wrap: wrap; /* yeni: mobilde sarmalama için */
+    gap: 10px; /* başlık ve linkler arasında boşluk */
     }
     .navbar .title-text {
         color: #e6e6e6;
@@ -36,15 +37,27 @@
         text-overflow: ellipsis;
         margin: 0;
     }
-
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* linkler arası boşluk */
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
     .container {
         max-width: 900px;
         margin: 40px auto;
         padding: 30px;
-        background: white;
+        background: rgba(255, 255, 255, 0.5);
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        background: rgba(255, 255, 255, 0.5); 
     }
     .footer {
         text-align:center;
@@ -75,11 +88,7 @@
 </body>
 <script>
    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-      console.log('Service Worker kayıtlı:', registration.scope);
-    }).catch(function(error) {
-      console.log('Service Worker kaydı başarısız:', error);
-    });
-  }
+        navigator.serviceWorker.register('service-worker.js');
+   }
 </script>
 </html>

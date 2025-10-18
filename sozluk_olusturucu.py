@@ -50,12 +50,12 @@ joint_css = """
     .navbar {
     background: #203a3d;
     color: white;
-    padding: 15px 30px; /* padding artırıldı */
+    padding: 15px 30px; 
     display: flex;
-    justify-content: space-between; /* center → space-between */
+    justify-content: space-between; 
     align-items: center;
-    flex-wrap: wrap; /* yeni: mobilde sarmalama için */
-    gap: 10px; /* başlık ve linkler arasında boşluk */
+    flex-wrap: wrap; 
+    gap: 10px; 
     }
     .navbar .title-text {
         color: #e6e6e6;
@@ -69,7 +69,7 @@ joint_css = """
     .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px; /* linkler arası boşluk */
+    gap: 20px; 
 }
         .nav-links a {
         color: #e6e6e6;
@@ -149,11 +149,47 @@ for data in all_data:
             align-items: center;
             margin-bottom: 10px;
         }}
+        .navbarnew {{
+            background: #203a3d;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }}
+
+        .home-link {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+        }}
+
+        .home-link img {{
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}}
+
+.home-link img:hover {{
+    filter: invert(100%);
+    transform: scale(1.1);
+}}
+
+.home-link:hover span {{
+    color: #ffffff;
+}}
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="../index.html" style="text-decoration: none; color: #e6e6e6; font-size: 16px; font-weight: bold;">👉 Ana Sayfa</a>
+    <div class="navbarnew">
+    <a href="../index.html" class="home-link" title="Ana Sayfa">
+    <img src="../homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <span>Ana Sayfa</span>
+</a>
     </div>
     <div class="container">
         <div class="title-bar">
@@ -253,11 +289,20 @@ with open(index_path, "w", encoding="utf-8") as index:
             outline: none;
         }}
         .main-heading {{
-        font-size: clamp(22px, 4vw, 32px); /* responsive büyüklük */
+        font-size: clamp(22px, 4vw, 32px); 
         text-align: center;
         margin-bottom: 25px;
         color: #203a3d;
         }}
+
+        .logo-svg {{
+    display: block;               
+    margin: 0 auto 14px;        
+    width: clamp(40px, 12vw, 120px); 
+    height: auto;                
+    max-height: 140px;           
+    opacity: 0.3;               
+}}
         ul {{ list-style-type: none; padding: 0; }}
         li {{ margin: 12px 0; }}
         a {{ text-decoration: none; color: #1f4037; font-size: 20px; }}
@@ -302,6 +347,7 @@ with open(index_path, "w", encoding="utf-8") as index:
         </div>
     </div>
     <div class="container">
+        <img src="./favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
         <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
         <div class="switcher">
             <button id="btn-kurd" class="active" onclick="change_lang('kurdish')">Kürtçe (Kurmanci)</button>
@@ -374,11 +420,47 @@ for page, title, content, extracontent in [
     <style>
         h1 {{ font-size: 32px; margin-bottom: 20px; }}
         p {{ font-size: 18px; line-height: 1.6em; }}
+                .navbarnew {{
+            background: #203a3d;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }}
+
+.home-link {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+        }}
+
+.home-link img {{
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}}
+
+.home-link img:hover {{
+    filter: invert(100%);
+    transform: scale(1.1);
+}}
+
+.home-link:hover span {{
+    color: #ffffff;
+}}
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" style="text-decoration: none; color: #e6e6e6; font-size: 16px; font-weight: bold;">Ana Sayfa</a>
+    <div class="navbarnew">
+    <a href="./index.html" class="home-link" title="Ana Sayfa">
+    <img src="./homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <span>Ana Sayfa</span>
+</a>
     </div>
     <div class="container">
         <h1>{title}</h1>

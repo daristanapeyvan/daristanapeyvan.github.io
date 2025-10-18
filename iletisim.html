@@ -21,12 +21,12 @@
     .navbar {
     background: #203a3d;
     color: white;
-    padding: 15px 30px; /* padding artırıldı */
+    padding: 15px 30px; 
     display: flex;
-    justify-content: space-between; /* center → space-between */
+    justify-content: space-between; 
     align-items: center;
-    flex-wrap: wrap; /* yeni: mobilde sarmalama için */
-    gap: 10px; /* başlık ve linkler arasında boşluk */
+    flex-wrap: wrap; 
+    gap: 10px; 
     }
     .navbar .title-text {
         color: #e6e6e6;
@@ -40,7 +40,7 @@
     .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px; /* linkler arası boşluk */
+    gap: 20px; 
 }
         .nav-links a {
         color: #e6e6e6;
@@ -74,11 +74,47 @@
     <style>
         h1 { font-size: 32px; margin-bottom: 20px; }
         p { font-size: 18px; line-height: 1.6em; }
+                .navbarnew {
+            background: #203a3d;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+.home-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+        }
+
+.home-link img {
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}
+
+.home-link img:hover {
+    filter: invert(100%);
+    transform: scale(1.1);
+}
+
+.home-link:hover span {
+    color: #ffffff;
+}
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" style="text-decoration: none; color: #e6e6e6; font-size: 16px; font-weight: bold;">Ana Sayfa</a>
+    <div class="navbarnew">
+    <a href="./index.html" class="home-link" title="Ana Sayfa">
+    <img src="./homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <span>Ana Sayfa</span>
+</a>
     </div>
     <div class="container">
         <h1>İletişim</h1>

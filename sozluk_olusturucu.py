@@ -117,7 +117,7 @@ for data in all_data:
     <title>{kurdish} - Daristana Peyvan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="resources/favicon.svg">
     {joint_css}
     <style>
         h1 {{ font-size: 42px; }}
@@ -187,7 +187,7 @@ for data in all_data:
 <body>
     <div class="navbarnew">
     <a href="../index.html" class="home-link" title="Ana Sayfa">
-    <img src="../homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
     <span>Ana Sayfa</span>
 </a>
     </div>
@@ -195,7 +195,7 @@ for data in all_data:
         <div class="title-bar">
             <h1>{kurdish}</h1>
             <button class="copy-btn" onclick="copyPageUrl()" title="Bağlantıyı Kopyala">
-                <img src="../copy.svg" alt="Kopyala" width="24" height="24">
+                <img src="../resources/copy.svg" alt="Kopyala" width="24" height="24">
                 <span class="checkmark" style="display:none;">✅</span>
             </button>
         </div>
@@ -262,7 +262,7 @@ with open(index_path, "w", encoding="utf-8") as index:
     <meta name="keywords" content="Kürtçe-Türkçe, Sözlük">
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
     <style>
@@ -347,7 +347,7 @@ with open(index_path, "w", encoding="utf-8") as index:
         </div>
     </div>
     <div class="container">
-        <img src="./favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
+        <img src="resources/favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
         <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
         <div class="switcher">
             <button id="btn-kurd" class="active" onclick="change_lang('kurdish')">Kürtçe (Kurmanci)</button>
@@ -414,7 +414,7 @@ for page, title, content, extracontent in [
     <meta charset="UTF-8">
     <title>{title}</title>
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="../favicon.svg" type="image/xml+svg">
+    <link rel="icon" href="resources/favicon.svg" type="image/xml+svg">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
     <style>
@@ -458,7 +458,7 @@ for page, title, content, extracontent in [
 <body>
     <div class="navbarnew">
     <a href="./index.html" class="home-link" title="Ana Sayfa">
-    <img src="./homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <img src="resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
     <span>Ana Sayfa</span>
 </a>
     </div>

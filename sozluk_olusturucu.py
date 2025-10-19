@@ -22,11 +22,11 @@ wordtype_map = {
     "adj": "rengdêr - sıfat",
     "adv": "hoker - zarf",
     "pron": "cînav - zamir",
-    "prep": "edat",
+    "prep": "daçek - edat",
     "conj": "girêdek - bağlaç",
     "interj": "ünlem",
     "num": "sayı",
-    "sk": "sık kullanılan ifadeler",
+    "exp": "ifade",
 }
 
 def normalize_word(k):

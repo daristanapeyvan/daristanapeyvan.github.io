@@ -90,7 +90,6 @@ joint_css = """
     }
     .footer {
         text-align:center;
-        padding: 30px 0;
         font-size: 16px;
     }
     .footer a {
@@ -358,7 +357,7 @@ with open(index_path, "w", encoding="utf-8") as index:
         <ul id="results"></ul>
     </div>
     <div class="footer">
-    <div style="text-align:center; font-size: 14px; color: #999; margin-top: 20px;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
+    <div style="text-align:center; font-size: 14px; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
     <script src="all_data.js"></script>
     <script>
         let search_mode = "kurdish";

@@ -117,7 +117,7 @@ for data in all_data:
     <title>{kurdish} - Daristana Peyvan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/svg+xml" href="resources/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../resources/favicon.svg">
     {joint_css}
     <style>
         h1 {{ font-size: 42px; }}
@@ -404,8 +404,8 @@ with open(index_path, "w", encoding="utf-8") as index:
 
 # sabit sayfaları oluştur
 for page, title, content, extracontent in [
-    ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "Bu proje açık kaynak kodludur. Projenin kaynak kodlarına ve ana sayfasına ulaşmak için:  <a href='https://github.com/projectxurme/projectxurme.github.io'>Proje Ana Sayfası - GitHub</a>"),
-    ("iletisim.html", "İletişim", "Geliştirici ekibimizle iletişime geçmek; soru ve taleplerinizi bildirmek için ilgili iletişim adresini kullanabilirsiniz.", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a>")
+    ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "..."),
+    ("iletisim.html", "İletişim", "İlgili iletişim adresini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul>", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a>")
 ]:
     with open(os.path.join(base_dir, page), "w", encoding="utf-8") as f:
         f.write(f"""<!DOCTYPE html>

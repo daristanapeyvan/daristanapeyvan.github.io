@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İfadeler & Günlük Konuşma - Daristana Peyvan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<style>
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #222;
+        overflow: scroll;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .navbar {
+    background: #21421e;
+    color: white;
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #0f1f0e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 16px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #21421e;
+            color: white;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .home-link img {
+            vertical-align: middle;
+            filter: invert(85%);
+            transition: 0.2s ease;
+        }
+        .home-link img:hover {
+            filter: invert(100%);
+            transform: scale(1.1);
+        }
+        .home-link:hover span {
+            color: #ffffff;
+        }
+        .navbarnew {
+            background: #21421e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>İfadeler & Günlük Konuşma</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kürtçe</th>
+                    <th>Türkçe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>bi min</td><td>bence</td></tr>
+<tr><td>bi ser de</td><td>hatta,üstelik</td></tr>
+<tr><td>bi xêr hatin</td><td>hoşgeldin</td></tr>
+<tr><td>ez baş im, spas dikim</td><td>İyiyim, teşekkür ederim.</td></tr>
+<tr><td>ez ne pir baş im</td><td>Pek iyi değilim.</td></tr>
+<tr><td>ez nexweş im</td><td>Ben hastayım.</td></tr>
+<tr><td>her bijî</td><td>bravo/yaşa</td></tr>
+<tr><td>ji ber vê yekê</td><td>bundan dolayı</td></tr>
+<tr><td>ne xirab im</td><td>Fena değilim.</td></tr>
+<tr><td>piçekî westiyayî me</td><td>Biraz yorgunum.</td></tr>
+<tr><td>qet nebe</td><td>hiç değilse,en azından</td></tr>
+<tr><td>rojbaş</td><td>günaydın</td></tr>
+<tr><td>spas</td><td>teşekkürler</td></tr>
+<tr><td>şevbaş</td><td>iyi geceler</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+   if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+   }
+</script>
+</html>

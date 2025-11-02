@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kelime Kutusu - Daristana Peyvan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<style>
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #222;
+        overflow: scroll;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .navbar {
+    background: #21421e;
+    color: white;
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #0f1f0e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        body {
+            font-family: 'Tahoma', "Geneva", sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #222;
+            overflow: scroll;
+            text-align: center;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        .navbarnew {
+            background: #21421e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .home-link img {
+            vertical-align: middle;
+            filter: invert(85%);
+            transition: 0.2s ease;
+        }
+        .home-link img:hover {
+            filter: invert(100%);
+            transform: scale(1.1);
+        }
+        .home-link:hover span {
+            color: #ffffff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container a {
+            display: block;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #21421e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .container a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Kelime Kutusu 🎁</h1>
+        <a href="./exp.html">İfadeler ve Günlük Konuşma</a>
+        <a href="./renkler.html">Renkler</a>
+        <a href="./sayilar.html">Rakam & Sayılar</a>
+    </div>
+<script>
+   if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+   }
+</script>
+</body>
+</html>

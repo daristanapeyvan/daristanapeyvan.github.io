@@ -27,6 +27,7 @@ wordtype_map = {
     "interj": "ünlem",
     "num": "sayı",
     "exp": "ifade",
+    "color": "renk",
 }
 
 def normalize_word(k):
@@ -48,14 +49,15 @@ joint_css = """
         display: none;
     }
     .navbar {
-    background: #203a3d;
+    background: #21421e;
     color: white;
     padding: 15px 30px; 
     display: flex;
     justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap; 
-    gap: 10px; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
     }
     .navbar .title-text {
         color: #e6e6e6;
@@ -93,7 +95,7 @@ joint_css = """
         font-size: 16px;
     }
     .footer a {
-        color: #31595E;
+        color: #0f1f0e;
         text-decoration: none;
         margin: 0 10px;
     }
@@ -125,9 +127,10 @@ for data in all_data:
         .extra {{
             margin-top: 30px;
             font-size: 18px;
-            background: #1f3a3d17;
+            background: #21421e08;
             padding: 15px;
-            border-left: 5px solid #1f3a3d;
+            border-left: 3px solid #21421e1c;
+            border-right: 3px solid #21421e1c;
             border-radius: 24px;
             color: #222;
         }}
@@ -140,7 +143,7 @@ for data in all_data:
             color: #365e58;
         }}
         .copy-btn:hover {{
-            color: #203a3d;
+            color: #21421e;
         }}
         .title-bar {{
             display: flex;
@@ -148,13 +151,21 @@ for data in all_data:
             align-items: center;
             margin-bottom: 10px;
         }}
+
+        a {{
+            color: #21421e;
+            text-decoration: none;
+            font-weight: bold;
+        }}
+
         .navbarnew {{
-            background: #203a3d;
+            background: #21421e;
             color: white;
             padding: 15px 30px;
             display: flex;
             justify-content: center; 
             align-items: center;
+            box-shadow: 0 4px .0px #708A58;
         }}
 
         .home-link {{
@@ -271,12 +282,12 @@ with open(index_path, "w", encoding="utf-8") as index:
             padding: 8px 20px;
             border: none;
             border-radius: 24px;
-            background: #315b5e;
+            background: #33662e;
             color: white;
             cursor: pointer;
             font-weight: bold;
         }}
-        .switcher button.active {{ background: #203b3d; }}
+        .switcher button.active {{ background: #21421e; }}
         #search {{
             width: 60%;
             padding: 12px 16px;
@@ -291,7 +302,7 @@ with open(index_path, "w", encoding="utf-8") as index:
         font-size: clamp(22px, 4vw, 32px); 
         text-align: center;
         margin-bottom: 25px;
-        color: #203a3d;
+        color: #0f1f0e;
         }}
 
         .logo-svg {{
@@ -304,7 +315,7 @@ with open(index_path, "w", encoding="utf-8") as index:
 }}
         ul {{ list-style-type: none; padding: 0; }}
         li {{ margin: 12px 0; }}
-        a {{ text-decoration: none; color: #1f4037; font-size: 20px; }}
+        a {{ text-decoration: none; color: #0f1f0e; font-size: 20px; }}
         a:hover {{ color: #00000; }}
         #suggested_word {{
             font-size: 18px;
@@ -340,6 +351,7 @@ with open(index_path, "w", encoding="utf-8") as index:
     <div class="navbar">
         <h1 class="title-text">Daristana Peyvan</h1>
         <div class="nav-links">
+            <a href="kelimekutusu.html">🎁</a>
             <a href="hakkinda.html">Hakkında</a>
             <a href="iletisim.html">İletişim</a>
             <a href="https://github.com/daristanapeyvan/daristanapeyvan.github.io">GitHub</a>
@@ -401,6 +413,230 @@ with open(index_path, "w", encoding="utf-8") as index:
 </body>
 </html>""")
 
+# veriler.csv'deki belirtilen kelime türleri için özel sayfalar oluştur
+categories = {
+    "exp": {
+        "title": "İfadeler & Günlük Konuşma",
+        "filename": "exp.html",
+    },
+    "color": {
+        "title": "Renkler",
+        "filename": "renkler.html",
+    },
+    "num": {
+        "title": "Rakamlar & Sayılar",
+        "filename": "sayilar.html",
+    },
+}
+
+for key, info in categories.items():
+    filtered = [d for d in all_data if d[1].strip().lower() == key]
+    if not filtered:
+        continue
+
+    rows_html = "\n".join(f"<tr><td>{k}</td><td>{t}</td></tr>" for k, _, t, _ in filtered)
+
+    file_path = os.path.join(base_dir, info["filename"])
+    with open(file_path, "w", encoding="utf-8") as cat_file:
+        cat_file.write(f"""<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{info["title"]} - Daristana Peyvan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {joint_css}
+    <style>
+        h1 {{
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }}
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }}
+        th, td {{
+            padding: 16px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }}
+        th {{
+            background-color: #21421e;
+            color: white;
+            text-align: left;
+        }}
+        tr:hover {{
+            background-color: #f1f1f1;
+        }}
+        .home-link {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        .home-link img {{
+            vertical-align: middle;
+            filter: invert(85%);
+            transition: 0.2s ease;
+        }}
+        .home-link img:hover {{
+            filter: invert(100%);
+            transform: scale(1.1);
+        }}
+        .home-link:hover span {{
+            color: #ffffff;
+        }}
+        .navbarnew {{
+            background: #21421e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }}
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>{info["title"]}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kürtçe</th>
+                    <th>Türkçe</th>
+                </tr>
+            </thead>
+            <tbody>
+                {rows_html}
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+   if ('serviceWorker' in navigator) {{
+        navigator.serviceWorker.register('service-worker.js');
+   }}
+</script>
+</html>""")
+
+# kelime türleri sayfasını bağlayan ana sayfa oluştur
+kelimekutusu_path = os.path.join(base_dir, "kelimekutusu.html")
+with open(kelimekutusu_path, "w", encoding="utf-8") as f:
+    f.write(f"""<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kelime Kutusu - Daristana Peyvan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {joint_css}
+    <style>
+        body {{
+            font-family: 'Tahoma', "Geneva", sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #222;
+            overflow: scroll;
+            text-align: center;
+        }}
+        body::-webkit-scrollbar {{
+            display: none;
+        }}
+        .navbarnew {{
+            background: #21421e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }}
+        .home-link {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        .home-link img {{
+            vertical-align: middle;
+            filter: invert(85%);
+            transition: 0.2s ease;
+        }}
+        .home-link img:hover {{
+            filter: invert(100%);
+            transform: scale(1.1);
+        }}
+        .home-link:hover span {{
+            color: #ffffff;
+        }}
+        .container {{
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }}
+        h1 {{
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }}
+        .container a {{
+            display: block;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #21421e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }}
+        .container a:hover {{
+            color: #000;
+        }}
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Kelime Kutusu 🎁</h1>
+        <a href="./exp.html">İfadeler ve Günlük Konuşma</a>
+        <a href="./renkler.html">Renkler</a>
+        <a href="./sayilar.html">Rakam & Sayılar</a>
+    </div>
+<script>
+   if ('serviceWorker' in navigator) {{
+        navigator.serviceWorker.register('service-worker.js');
+   }}
+</script>
+</body>
+</html>""")
+
+
 # sabit sayfaları oluştur
 for page, title, content, extracontent in [
     ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "..."),
@@ -420,12 +656,13 @@ for page, title, content, extracontent in [
         h1 {{ font-size: 32px; margin-bottom: 20px; }}
         p {{ font-size: 18px; line-height: 1.6em; }}
                 .navbarnew {{
-            background: #203a3d;
+            background: #21421e;
             color: white;
             padding: 15px 30px;
             display: flex;
             justify-content: center; 
             align-items: center;
+            box-shadow: 0 4px .0px #708A58;
         }}
 
 .home-link {{
@@ -481,7 +718,7 @@ manifest_json = {
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#f4f4f4",
-    "theme_color": "#203a3d",
+    "theme_color": "#21421e",
     "icons": [
         {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
         {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}

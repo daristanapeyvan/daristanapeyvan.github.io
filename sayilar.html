@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rakamlar & Sayılar - Daristana Peyvan</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<style>
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #222;
+        overflow: scroll;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .navbar {
+    background: #21421e;
+    color: white;
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 16px;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #0f1f0e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 16px;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #21421e;
+            color: white;
+            text-align: left;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .home-link img {
+            vertical-align: middle;
+            filter: invert(85%);
+            transition: 0.2s ease;
+        }
+        .home-link img:hover {
+            filter: invert(100%);
+            transform: scale(1.1);
+        }
+        .home-link:hover span {
+            color: #ffffff;
+        }
+        .navbarnew {
+            background: #21421e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Rakamlar & Sayılar</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kürtçe</th>
+                    <th>Türkçe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>(1) yek</td><td>bir</td></tr>
+<tr><td>(10) deh</td><td>on</td></tr>
+<tr><td>(100) sed</td><td>yüz</td></tr>
+<tr><td>(11) yazdeh</td><td>onbir</td></tr>
+<tr><td>(12) diwazdeh</td><td>oniki</td></tr>
+<tr><td>(13) sêzdeh</td><td>onüç</td></tr>
+<tr><td>(14) çardeh</td><td>ondört</td></tr>
+<tr><td>(15) pazdeh</td><td>onbeş</td></tr>
+<tr><td>(16) şazdeh</td><td>onaltı</td></tr>
+<tr><td>(17) hevdeh</td><td>onyedi</td></tr>
+<tr><td>(18) hejdeh</td><td>onsekiz</td></tr>
+<tr><td>(19) nozdeh</td><td>ondokuz</td></tr>
+<tr><td>(2) du</td><td>iki</td></tr>
+<tr><td>(20) bîst</td><td>yirmi</td></tr>
+<tr><td>(3) sê</td><td>üç</td></tr>
+<tr><td>(30) sî</td><td>otuz</td></tr>
+<tr><td>(4) çar</td><td>dört</td></tr>
+<tr><td>(40) çil</td><td>kırk</td></tr>
+<tr><td>(5) pênç</td><td>beş</td></tr>
+<tr><td>(50) pêncî</td><td>elli</td></tr>
+<tr><td>(6) şeş</td><td>altı</td></tr>
+<tr><td>(60) şêst</td><td>altmış</td></tr>
+<tr><td>(7) heft</td><td>yedi</td></tr>
+<tr><td>(70) heftê</td><td>yetmiş</td></tr>
+<tr><td>(8) heşt</td><td>sekiz</td></tr>
+<tr><td>(80) heştê</td><td>seksen</td></tr>
+<tr><td>(9) neh</td><td>dokuz</td></tr>
+<tr><td>(90) nod</td><td>doksan</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+   if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+   }
+</script>
+</html>

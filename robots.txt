@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /
-Allow: /index.html
-Allow: /sayfalar/
+Allow: /
 
 Sitemap: https://daristanapeyvan.github.io/sitemap.xml

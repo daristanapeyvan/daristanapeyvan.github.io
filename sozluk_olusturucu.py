@@ -363,7 +363,6 @@ input:checked + .slider:before {{
         .logo-svg {{
     display: block;               
     margin: 0 auto 14px;        
-    width: clamp(40px, 12vw, 120px); 
     height: auto;                
     max-height: 140px;
     opacity: 0.5;    
@@ -390,6 +389,7 @@ input:checked + .slider:before {{
         background-repeat: no-repeat;
         background-size: 20px;
         padding: 12px 20px 12px 40px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }}
 
         @media (max-width: 600px) {{
@@ -410,6 +410,9 @@ input:checked + .slider:before {{
         .title-text {{
             font-size: 22px;
         }}
+        #search {{
+        width: 80%; 
+    }}
     }}
 
     </style>
@@ -425,7 +428,7 @@ input:checked + .slider:before {{
         </div>
     </div>
     <div class="container">
-        <img src="resources/favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
+        <img src="resources/banner.png" alt="Daristana Peyvan logosu" class="logo-svg">
         <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
 <div class="switcher">
     <span class="lang-label" id="label-kurd">Kürtçe (Kurmanci)</span>
@@ -437,12 +440,12 @@ input:checked + .slider:before {{
     <span class="lang-label" id="label-turkish">Türkçe</span>
 </div>
         <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
+        <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: {toplam_kelime_sayisi} | BETA</div>
         <div id="suggested_word"></div>
         <ul id="results"></ul>
     </div>
     <div class="footer">
     <div style="text-align:center; font-size: 0.875rem; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
-    <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: {toplam_kelime_sayisi} | BETA</div>
     <script src="all_data.js"></script>
     <script>
     let search_mode = "kurdish";

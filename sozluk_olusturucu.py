@@ -38,18 +38,26 @@ def normalize_word(k):
 # ortak CSS
 joint_css = """
 <style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
     body {
         font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
         margin: 0;
-        background-color: #f4f4f4;
-        color: #222;
+        background-color: #EBEAE6;
+        color: #21421e;
         overflow: scroll;
+        overscroll-behavior: none;
     }
     body::-webkit-scrollbar {
         display: none;
     }
     .navbar {
-    background: #21421e;
+    background-image: linear-gradient(180deg, #21421e, #122010);
     color: white;
     padding: 15px 30px; 
     display: flex;
@@ -77,7 +85,7 @@ joint_css = """
         color: #e6e6e6;
         text-decoration: none;
         margin-left: 20px;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .nav-links a:hover {
         color: #ffffff;
@@ -86,7 +94,7 @@ joint_css = """
         max-width: 900px;
         margin: 40px auto;
         padding: 30px;
-        background: rgba(255, 255, 255, 0.5);
+        background: #FFFFFFE6;
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -95,7 +103,7 @@ joint_css = """
         font-size: 16px;
     }
     .footer a {
-        color: #0f1f0e;
+        color: #21421e;
         text-decoration: none;
         margin: 0 10px;
     }
@@ -121,18 +129,18 @@ for data in all_data:
     <link rel="icon" type="image/svg+xml" href="../resources/favicon.svg">
     {joint_css}
     <style>
-        h1 {{ font-size: 42px; }}
-        .wordtype {{ font-style: italic; color: gray; font-size: 18px; margin-bottom: 20px; }}
-        p {{ font-size: 22px; line-height: 1.6em; }}
+        h1 {{ font-size: 2.2rem; }}
+        .wordtype {{ font-style: italic; color: #21421e; font-size: 1rem; margin-bottom: 20px; }}
+        p {{ font-size: 1.2rem; line-height: 1.6em; }}
         .extra {{
             margin-top: 30px;
-            font-size: 18px;
+            font-size: 1rem;
             background: #21421e08;
             padding: 15px;
             border-left: 3px solid #21421e1c;
             border-right: 3px solid #21421e1c;
             border-radius: 24px;
-            color: #222;
+            color: #21421e;
         }}
         .copy-btn {{
             background: none;
@@ -159,7 +167,7 @@ for data in all_data:
         }}
 
         .navbarnew {{
-            background: #21421e;
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -170,12 +178,13 @@ for data in all_data:
 
         .home-link {{
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 8px;
     text-decoration: none;
     color: #e6e6e6;
     font-size: 16px;
     font-weight: bold;
+    margin: 5px;
         }}
 
         .home-link img {{
@@ -261,6 +270,8 @@ data_json_path = os.path.join(base_dir, "all_data.js")
 with open(data_json_path, "w", encoding="utf-8") as f:
     f.write("const all_data = " + json.dumps(all_data, ensure_ascii=False) + ";")
 
+toplam_kelime_sayisi = len(all_data)
+
 # index.html oluştur
 index_path = os.path.join(base_dir, "index.html")
 with open(index_path, "w", encoding="utf-8") as index:
@@ -276,33 +287,77 @@ with open(index_path, "w", encoding="utf-8") as index:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
     <style>
-        h2 {{ font-size: 28px; }}
-        .switcher {{ display: flex; gap: 20px; justify-content:center; margin-bottom: 20px; }}
-        .switcher button {{
-            padding: 8px 20px;
-            border: none;
-            border-radius: 24px;
-            background: #33662e;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
+        h2 {{ font-size: 1.75rem; }}
+        .switcher {{
+        display: flex; gap: 15px; justify-content: center; align-items: center; margin-bottom: 25px;
         }}
-        .switcher button.active {{ background: #21421e; }}
-        #search {{
-            width: 60%;
-            padding: 12px 16px;
-            margin: 0 auto 25px auto;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 24px;
-            display: block;
-            outline: none;
+
+        .lang-label {{
+        font-weight: normal; color: #666; font-size: 0.875rem;
         }}
+
+        #label-kurd.active, #label-turkish.active {{
+        font-weight: bold; color: #21421e;
+        }}
+
+.toggle-switch {{
+    position: relative;
+    display: inline-block;
+    width: 58px; 
+    height: 18px; 
+}}
+
+
+.toggle-switch input {{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}}
+
+
+.slider {{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; 
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}}
+
+
+.slider:before {{
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 6px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}}
+
+
+input:checked + .slider {{
+    background-color: #33662e; 
+}}
+
+
+input:checked + .slider:before {{
+    transform: translateX(36px); 
+}}
+        #search::placeholder {{
+        color: #21421e;  
+        opacity: 1;
+}}
         .main-heading {{
-        font-size: clamp(22px, 4vw, 32px); 
         text-align: center;
         margin-bottom: 25px;
-        color: #0f1f0e;
+        color: #21421e;
         }}
 
         .logo-svg {{
@@ -310,19 +365,34 @@ with open(index_path, "w", encoding="utf-8") as index:
     margin: 0 auto 14px;        
     width: clamp(40px, 12vw, 120px); 
     height: auto;                
-    max-height: 140px;           
-    opacity: 0.3;               
+    max-height: 140px;
+    opacity: 0.5;    
+    margin-top: 5px;              
 }}
         ul {{ list-style-type: none; padding: 0; }}
         li {{ margin: 12px 0; }}
-        a {{ text-decoration: none; color: #0f1f0e; font-size: 20px; }}
-        a:hover {{ color: #00000; }}
+        a {{ text-decoration: none; color: #21421e;}}
         #suggested_word {{
-            font-size: 18px;
             margin-top: 30px;
+            font-size: 1.1rem;
         }}
 
-            @media (max-width: 600px) {{
+        #search {{
+        width: 50%;
+        margin: 0 auto 25px auto;
+        display: block;
+        padding: 12px 16px;
+        border: 2px solid #33662e;
+        border-radius: 24px;
+        outline: none;
+        background-image: url('./resources/searchicon.png'); 
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        background-size: 20px;
+        padding: 12px 20px 12px 40px;
+        }}
+
+        @media (max-width: 600px) {{
         .navbar {{
             flex-direction: column;
             align-items: center;
@@ -340,11 +410,8 @@ with open(index_path, "w", encoding="utf-8") as index:
         .title-text {{
             font-size: 22px;
         }}
-
-        #search {{
-            width: 90%;
-        }}
     }}
+
     </style>
 </head>
 <body>
@@ -360,55 +427,82 @@ with open(index_path, "w", encoding="utf-8") as index:
     <div class="container">
         <img src="resources/favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
         <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
-        <div class="switcher">
-            <button id="btn-kurd" class="active" onclick="change_lang('kurdish')">Kürtçe (Kurmanci)</button>
-            <button id="btn-turkish" onclick="change_lang('turkish')">Türkçe</button>
-        </div>
-        <input type="text" id="search" placeholder="Ara..." oninput="search()">
+<div class="switcher">
+    <span class="lang-label" id="label-kurd">Kürtçe (Kurmanci)</span>
+    
+    <label class="toggle-switch">
+        <input type="checkbox" id="lang-toggle" checked onchange="toggle_lang()">
+        <span class="slider"></span>
+    </label>
+    <span class="lang-label" id="label-turkish">Türkçe</span>
+</div>
+        <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
         <div id="suggested_word"></div>
         <ul id="results"></ul>
     </div>
     <div class="footer">
-    <div style="text-align:center; font-size: 14px; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
+    <div style="text-align:center; font-size: 0.875rem; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
+    <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: {toplam_kelime_sayisi} | BETA</div>
     <script src="all_data.js"></script>
     <script>
-        let search_mode = "kurdish";
-        function normalize_word(str) {{
-            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/ /g, "_");
+    let search_mode = "kurdish";
+    
+    function normalize_word(str) {{
+        return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ /g, "_");
+    }}
+    
+    function toggle_lang() {{
+        const isChecked = document.getElementById("lang-toggle").checked;
+        const btnKurd = document.getElementById("label-kurd");
+        const btnTurkish = document.getElementById("label-turkish");
+        
+        if (isChecked) {{
+            // Anahtar AÇIK (Sağda) ise Kürtçe
+            search_mode = "kurdish";
+            btnKurd.classList.add("active");
+            btnTurkish.classList.remove("active");
+            
+        }} else {{
+            // Anahtar KAPALI (Solda) ise Türkçe
+            search_mode = "turkish";
+            btnKurd.classList.remove("active");
+            btnTurkish.classList.add("active");
         }}
-        function change_lang(mod) {{
-            search_mode = mod;
-            document.getElementById("btn-kurd").classList.toggle("active", mod === "kurdish");
-            document.getElementById("btn-turkish").classList.toggle("active", mod === "turkish");
-            search();
-        }}
-        function search() {{
-            const q = document.getElementById("search").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "_");
-            const ul = document.getElementById("results");
-            ul.innerHTML = "";
-            if(q.length < 2) return;
-            all_data.forEach(v => {{
-                const kurdish = normalize_word(v[0]);
-                const turkishword = normalize_word(v[2]);
-                if((search_mode === "kurdish" && kurdish.includes(q)) || (search_mode === "turkish" && turkishword.includes(q))) {{
-                    let shown = search_mode === "kurdish" ? v[0] : v[2];
-                    const filename = normalize_word(kurdish.split(",")[0].trim());
-                    const li = document.createElement("li");
-                    li.innerHTML = '<a href="sayfalar/' + filename + '.html">' + shown + '</a>';
-                    ul.appendChild(li);
-                }}
-            }});
-        }}
-        window.onload = function() {{
-            const random_word = all_data[Math.floor(Math.random() * all_data.length)];
-            const kurdish = random_word[0];
-            const filename = normalize_word(kurdish.split(",")[0].trim());
-            const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
-            document.getElementById("suggested_word").innerHTML = link;
-        }}
-        if ('serviceWorker' in navigator) {{
-            navigator.serviceWorker.register('service-worker.js');
-        }}
+        
+        search(); 
+    }}
+    
+    
+    function search() {{
+        const q = document.getElementById("search").value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ /g, "_");
+        const ul = document.getElementById("results");
+        ul.innerHTML = "";
+        if(q.length < 2) return;
+        all_data.forEach(v => {{
+            const kurdish = normalize_word(v[0]);
+            const turkishword = normalize_word(v[2]);
+            if((search_mode === "kurdish" && kurdish.includes(q)) || (search_mode === "turkish" && turkishword.includes(q))) {{
+                let shown = search_mode === "kurdish" ? v[0] : v[2];
+                const filename = normalize_word(kurdish.split(",")[0].trim());
+                const li = document.createElement("li");
+                li.innerHTML = '<a href="sayfalar/' + filename + '.html">' + shown + '</a>';
+                ul.appendChild(li);
+            }}
+        }});
+    }}
+    
+    window.onload = function() {{
+        const random_word = all_data[Math.floor(Math.random() * all_data.length)];
+        const kurdish = random_word[0];
+        const filename = normalize_word(kurdish.split(",")[0].trim());
+        const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
+        document.getElementById("suggested_word").innerHTML = link;
+        
+        document.getElementById("label-kurd").classList.add("active");
+    }}
+    if ('serviceWorker' in navigator) {{
+        navigator.serviceWorker.register('service-worker.js');
+    }}
     </script>
 </body>
 </html>""")
@@ -462,7 +556,7 @@ for key, info in categories.items():
         }}
         th, td {{
             padding: 16px;
-            font-size: 18px;
+            font-size: 1rem;
             border-bottom: 1px solid #ddd;
         }}
         th {{
@@ -475,12 +569,13 @@ for key, info in categories.items():
         }}
         .home-link {{
             display: flex;
-            align-items: center;
+            align-items: end;
             gap: 8px;
             text-decoration: none;
             color: #e6e6e6;
             font-size: 16px;
             font-weight: bold;
+            margin: 5px;
         }}
         .home-link img {{
             vertical-align: middle;
@@ -495,7 +590,7 @@ for key, info in categories.items():
             color: #ffffff;
         }}
         .navbarnew {{
-            background: #21421e;
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -550,8 +645,8 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         body {{
             font-family: 'Tahoma', "Geneva", sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #222;
+            background-color: #21421e;
+            color: #21421e;
             overflow: scroll;
             text-align: center;
         }}
@@ -559,7 +654,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
             display: none;
         }}
         .navbarnew {{
-            background: #21421e;
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -569,12 +664,13 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         }}
         .home-link {{
             display: flex;
-            align-items: center;
+            align-items: end;
             gap: 8px;
             text-decoration: none;
             color: #e6e6e6;
             font-size: 16px;
             font-weight: bold;
+            margin: 5px;
         }}
         .home-link img {{
             vertical-align: middle;
@@ -603,7 +699,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         }}
         .container a {{
             display: block;
-            font-size: 18px;
+            font-size: 1rem;
             margin: 10px 0;
             color: #21421e;
             text-decoration: none;
@@ -639,8 +735,8 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
 
 # sabit sayfaları oluştur
 for page, title, content, extracontent in [
-    ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "..."),
-    ("iletisim.html", "İletişim", "İlgili iletişim adresini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul>", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a>")
+    ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "<b> Özellikler </b> <br> <ul> <li>Kürtçe (Kurmanci) veya Türkçe dillerinde girdi araması yapabilirsiniz.</li> <li>Şapkasız harfleri şapkalı karşılıklarına dönüştüren karakter dönüştürme özelliği sayesinde, Kürtçe girdileri aramak için özel Kürtçe harfleri kullanmanız zorunlu değildir.</li> <li>Kelime Kutusu özelliği ile, çeşitli kelimeleri kategorize edilmiş şekilde görüntüleyebilirsiniz.</li> <li>PWA desteğiyle, Web sayfasını cihazınıza bir Web uygulaması olarak yükleyip, hızlı erişim sağlayabilirsiniz.</li> </ul>"),
+    ("iletisim.html", "İletişim", "İletişim adreslerini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul>", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a><br>Geri bildirimleriniz için Google Formlar adresini de kullanabilirsiniz: <a href='https://forms.gle/rzmShxf7H4sY8ycU7'>Google Formlar</a>")
 ]:
     with open(os.path.join(base_dir, page), "w", encoding="utf-8") as f:
         f.write(f"""<!DOCTYPE html>
@@ -654,9 +750,9 @@ for page, title, content, extracontent in [
     {joint_css}
     <style>
         h1 {{ font-size: 32px; margin-bottom: 20px; }}
-        p {{ font-size: 18px; line-height: 1.6em; }}
-                .navbarnew {{
-            background: #21421e;
+        p {{ font-size: 1rem; line-height: 1.6em; }}
+            .navbarnew {{
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -667,12 +763,13 @@ for page, title, content, extracontent in [
 
 .home-link {{
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 8px;
     text-decoration: none;
     color: #e6e6e6;
     font-size: 16px;
     font-weight: bold;
+    margin: 5px;
         }}
 
 .home-link img {{
@@ -689,6 +786,14 @@ for page, title, content, extracontent in [
 .home-link:hover span {{
     color: #ffffff;
 }}
+a {{
+color: #21823f;
+}}
+
+ul li {{
+  margin-bottom: 10px;
+}}
+
     </style>
 </head>
 <body>
@@ -714,10 +819,10 @@ for page, title, content, extracontent in [
 # manifest.json oluştur
 manifest_json = {
     "name": "Daristana Peyvan",
-    "short_name": "Sözlük",
+    "short_name": "Ferheng",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#f4f4f4",
+    "background_color": "#21421e",
     "theme_color": "#21421e",
     "icons": [
         {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},

@@ -8,18 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
     body {
         font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
         margin: 0;
-        background-color: #f4f4f4;
-        color: #222;
+        background-color: #EBEAE6;
+        color: #21421e;
         overflow: scroll;
+        overscroll-behavior: none;
     }
     body::-webkit-scrollbar {
         display: none;
     }
     .navbar {
-    background: #21421e;
+    background-image: linear-gradient(180deg, #21421e, #122010);
     color: white;
     padding: 15px 30px; 
     display: flex;
@@ -47,7 +55,7 @@
         color: #e6e6e6;
         text-decoration: none;
         margin-left: 20px;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .nav-links a:hover {
         color: #ffffff;
@@ -56,7 +64,7 @@
         max-width: 900px;
         margin: 40px auto;
         padding: 30px;
-        background: rgba(255, 255, 255, 0.5);
+        background: #FFFFFFE6;
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -65,7 +73,7 @@
         font-size: 16px;
     }
     .footer a {
-        color: #0f1f0e;
+        color: #21421e;
         text-decoration: none;
         margin: 0 10px;
     }
@@ -75,8 +83,8 @@
         body {
             font-family: 'Tahoma', "Geneva", sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #222;
+            background-color: #21421e;
+            color: #21421e;
             overflow: scroll;
             text-align: center;
         }
@@ -84,7 +92,7 @@
             display: none;
         }
         .navbarnew {
-            background: #21421e;
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -94,12 +102,13 @@
         }
         .home-link {
             display: flex;
-            align-items: center;
+            align-items: end;
             gap: 8px;
             text-decoration: none;
             color: #e6e6e6;
             font-size: 16px;
             font-weight: bold;
+            margin: 5px;
         }
         .home-link img {
             vertical-align: middle;
@@ -128,7 +137,7 @@
         }
         .container a {
             display: block;
-            font-size: 18px;
+            font-size: 1rem;
             margin: 10px 0;
             color: #21421e;
             text-decoration: none;

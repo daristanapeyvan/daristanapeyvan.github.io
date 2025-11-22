@@ -8,18 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
     body {
         font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
         margin: 0;
-        background-color: #f4f4f4;
-        color: #222;
+        background-color: #EBEAE6;
+        color: #21421e;
         overflow: scroll;
+        overscroll-behavior: none;
     }
     body::-webkit-scrollbar {
         display: none;
     }
     .navbar {
-    background: #21421e;
+    background-image: linear-gradient(180deg, #21421e, #122010);
     color: white;
     padding: 15px 30px; 
     display: flex;
@@ -47,7 +55,7 @@
         color: #e6e6e6;
         text-decoration: none;
         margin-left: 20px;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .nav-links a:hover {
         color: #ffffff;
@@ -56,7 +64,7 @@
         max-width: 900px;
         margin: 40px auto;
         padding: 30px;
-        background: rgba(255, 255, 255, 0.5);
+        background: #FFFFFFE6;
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -65,7 +73,7 @@
         font-size: 16px;
     }
     .footer a {
-        color: #0f1f0e;
+        color: #21421e;
         text-decoration: none;
         margin: 0 10px;
     }
@@ -86,7 +94,7 @@
         }
         th, td {
             padding: 16px;
-            font-size: 18px;
+            font-size: 1rem;
             border-bottom: 1px solid #ddd;
         }
         th {
@@ -99,12 +107,13 @@
         }
         .home-link {
             display: flex;
-            align-items: center;
+            align-items: end;
             gap: 8px;
             text-decoration: none;
             color: #e6e6e6;
             font-size: 16px;
             font-weight: bold;
+            margin: 5px;
         }
         .home-link img {
             vertical-align: middle;
@@ -119,7 +128,7 @@
             color: #ffffff;
         }
         .navbarnew {
-            background: #21421e;
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -147,10 +156,15 @@
             </thead>
             <tbody>
                 <tr><td>(1) yek</td><td>bir</td></tr>
+<tr><td>(1.) yekem</td><td>birinci</td></tr>
 <tr><td>(10) deh</td><td>on</td></tr>
+<tr><td>(10.) dehem</td><td>onuncu</td></tr>
 <tr><td>(100) sed</td><td>yüz</td></tr>
+<tr><td>(100.) sedem</td><td>yüzüncü</td></tr>
 <tr><td>(11) yazdeh</td><td>onbir</td></tr>
+<tr><td>(11.) yazdehem</td><td>on birinci</td></tr>
 <tr><td>(12) diwazdeh</td><td>oniki</td></tr>
+<tr><td>(12.) dozdehem</td><td>on ikinci</td></tr>
 <tr><td>(13) sêzdeh</td><td>onüç</td></tr>
 <tr><td>(14) çardeh</td><td>ondört</td></tr>
 <tr><td>(15) pazdeh</td><td>onbeş</td></tr>
@@ -159,21 +173,39 @@
 <tr><td>(18) hejdeh</td><td>onsekiz</td></tr>
 <tr><td>(19) nozdeh</td><td>ondokuz</td></tr>
 <tr><td>(2) du</td><td>iki</td></tr>
+<tr><td>(2.) duyem</td><td>ikinci</td></tr>
 <tr><td>(20) bîst</td><td>yirmi</td></tr>
+<tr><td>(20.) bîstem</td><td>yirminci</td></tr>
+<tr><td>(200) du sed</td><td>iki yüz</td></tr>
+<tr><td>(21.) bîst û yekem</td><td>yirmi birinci</td></tr>
 <tr><td>(3) sê</td><td>üç</td></tr>
+<tr><td>(3.) sêyem</td><td>üçüncü</td></tr>
 <tr><td>(30) sî</td><td>otuz</td></tr>
+<tr><td>(300) sê sed</td><td>üç yüz</td></tr>
 <tr><td>(4) çar</td><td>dört</td></tr>
+<tr><td>(4.) çarem</td><td>dördüncü</td></tr>
 <tr><td>(40) çil</td><td>kırk</td></tr>
+<tr><td>(400) çar sed</td><td>dört yüz</td></tr>
 <tr><td>(5) pênç</td><td>beş</td></tr>
+<tr><td>(5.) pêncem</td><td>beşinci</td></tr>
 <tr><td>(50) pêncî</td><td>elli</td></tr>
+<tr><td>(500) pênc sed</td><td>beş yüz</td></tr>
 <tr><td>(6) şeş</td><td>altı</td></tr>
+<tr><td>(6.) şeşem</td><td>altıncı</td></tr>
 <tr><td>(60) şêst</td><td>altmış</td></tr>
+<tr><td>(600) şeş sed</td><td>altı yüz</td></tr>
 <tr><td>(7) heft</td><td>yedi</td></tr>
+<tr><td>(7.) heftem</td><td>yedinci</td></tr>
 <tr><td>(70) heftê</td><td>yetmiş</td></tr>
+<tr><td>(700) heft sed</td><td>yedi yüz</td></tr>
 <tr><td>(8) heşt</td><td>sekiz</td></tr>
+<tr><td>(8.) heştem</td><td>sekizinci</td></tr>
 <tr><td>(80) heştê</td><td>seksen</td></tr>
+<tr><td>(800) heşt sed</td><td>sekiz yüz</td></tr>
 <tr><td>(9) neh</td><td>dokuz</td></tr>
+<tr><td>(9.) nehem</td><td>dokuzuncu</td></tr>
 <tr><td>(90) nod</td><td>doksan</td></tr>
+<tr><td>(900) neh sed</td><td>dokuz yüz</td></tr>
             </tbody>
         </table>
     </div>

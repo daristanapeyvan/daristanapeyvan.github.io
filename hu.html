@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük hizmeti sağlar...">
+    <meta name="keywords" content="Kürtçe-Türkçe, Sözlük">
+    <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    
+<style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #222;
+        overflow: scroll;
+        overscroll-behavior: none;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* 🟢 GÜNCELLENMİŞ .navbar CSS BLOĞU (Sabitleme ve Dikey Ortalama) 🟢 */
+    .navbar {
+        background-image: linear-gradient(180deg, #21421e, #122010);
+        color: white;
+        
+        /* 1. Navbar'ı ekranın en üstüne sabitler */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        
+        /* 2. iOS Durum Çubuğu için dinamik boşluk ekler */
+        padding-top: constant(safe-area-inset-top); 
+        padding-top: env(safe-area-inset-top);
+        
+        /* Padding ayarlamaları */
+        padding-bottom: 15px; 
+        padding-left: 30px; 
+        padding-right: 30px;
+
+        display: flex;
+        justify-content: space-between; 
+        
+        /* 3. BAŞLIK VE LİNKLERİ DİKEY ORTALAMA */
+        align-items: center; 
+        
+        flex-wrap: wrap; 
+        gap: 10px;
+        box-shadow: 0 4px .0px #708A58;
+    }
+    
+    /* 🟢 YENİ EK KOD: SABİTLENMİŞ NAVBAR'IN ALTINDA BOŞLUK BIRAKMA 🟢 */
+    .header-space {
+        height: 85px; 
+        height: calc(85px + env(safe-area-inset-top)); 
+    }
+
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+        /* Taşma düzeltmesi için eklendi */
+        flex-shrink: 1; 
+        min-width: 100px;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1rem;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px; 
+        margin-bottom: 40px; 
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #0f1f0e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        h2 { font-size: 1.75rem; }
+        
+        /* 🟢 YENİ SWİTCHER CSS STİLLERİ 🟢 */
+        .switcher { 
+            display: flex; 
+            gap: 15px; 
+            justify-content: center; 
+            align-items: center; 
+            margin-bottom: 20px; 
+        }
+
+        .lang-label {
+            font-weight: normal;
+            color: #666; 
+            transition: color 0.3s;
+            font-size: 1rem;
+            white-space: nowrap; /* Etiketlerin tek satırda kalmasını sağlar */
+        }
+
+        #label-kurd.active,
+        #label-turkish.active {
+            font-weight: bold;
+            color: #21421e; 
+        }
+
+        /* TOGGLE SWITCH İÇİN CSS */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px; 
+            height: 34px; 
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc; 
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #33662e; 
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Eski .switcher button stilleri kaldırıldı. */
+        /* ------------------------------------------- */
+        
+        #search {
+            width: 60%;
+            padding: 12px 16px;
+            margin: 0 auto 25px auto;
+            font-size: 1.125rem;
+            border: 1px solid #ccc;
+            border-radius: 24px;
+            display: block;
+            outline: none;
+        }
+        .main-heading {
+        font-size: clamp(22px, 4vw, 32px); 
+        text-align: center;
+        margin-bottom: 25px;
+        color: #0f1f0e;
+        }
+
+        .logo-svg {
+    display: block;               
+    margin: 0 auto 14px;        
+    width: clamp(40px, 12vw, 120px); 
+    height: auto;                
+    max-height: 140px;           
+    opacity: 0.3;               
+}
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 12px 0; }
+        a { text-decoration: none; color: #0f1f0e; font-size: 1.25rem}
+        a:hover { color: #000090;}
+        #suggested_word {
+            font-size: 1.125rem;
+            margin-top: 30px;
+        }
+
+            @media (max-width: 600px) {
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-links {
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            margin-left: 10px;
+            font-size: 15px;
+        }
+
+        .title-text {
+            font-size: 22px;
+        }
+
+        #search {
+            width: 90%;
+        }
+        
+        /* MEDIA QUERY İÇİN HEADER-SPACE GÜNCELLEMESİ */
+        .header-space {
+            height: 140px; 
+            height: calc(140px + env(safe-area-inset-top)); 
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="header-space"></div>
+
+    <div class="navbar">
+        <h1 class="title-text">Daristana Peyvan</h1>
+        <div class="nav-links">
+            <a href="kelimekutusu.html">🎁</a>
+            <a href="hakkinda.html">Hakkında</a>
+            <a href="iletisim.html">İletişim</a>
+            <a href="https://github.com/daristanapeyvan/daristanapeyvan.github.io">GitHub</a>
+        </div>
+    </div>
+    <div class="container">
+        <img src="resources/favicon.svg" alt="Daristana Peyvan logosu" class="logo-svg">
+        <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
+        
+        <div class="switcher">
+            <span class="lang-label" id="label-kurd">Kürtçe (Kurmanci)</span>
+            
+            <label class="toggle-switch">
+                <input type="checkbox" id="lang-toggle" checked onchange="toggle_lang()">
+                <span class="slider"></span>
+            </label>
+            
+            <span class="lang-label" id="label-turkish">Türkçe</span>
+        </div>
+        <input type="text" id="search" placeholder="Ara..." oninput="search()">
+        <div id="suggested_word"></div>
+        <ul id="results"></ul>
+    </div>
+    <div class="footer">
+    <div style="text-align:center; font-size: 0.875rem; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
+    <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px;">Toplam Kelime Sayısı: 1327 | BETA</div>
+    <script src="all_data.js"></script>
+    <script>
+        let search_mode = "kurdish";
+        function normalize_word(str) {
+            return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ /g, "_");
+        }
+        
+        // 🟢 YENİ TOGGLE SWİTCH JAVASCRİPT FONKSİYONU 🟢
+        function toggle_lang() {
+            const isChecked = document.getElementById("lang-toggle").checked;
+            const btnKurd = document.getElementById("label-kurd");
+            const btnTurkish = document.getElementById("label-turkish");
+            
+            if (isChecked) {
+                // Anahtar AÇIK (Sağda) ise Kürtçe
+                search_mode = "kurdish";
+                btnKurd.classList.add("active");
+                btnTurkish.classList.remove("active");
+                
+            } else {
+                // Anahtar KAPALI (Solda) ise Türkçe
+                search_mode = "turkish";
+                btnKurd.classList.remove("active");
+                btnTurkish.classList.add("active");
+            }
+            
+            search();
+        }
+        
+        // Eski change_lang fonksiyonu kaldırılmıştır.
+        /* function change_lang(mod) { ... } */
+        
+        function search() {
+            const q = document.getElementById("search").value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ /g, "_");
+            const ul = document.getElementById("results");
+            ul.innerHTML = "";
+            if(q.length < 2) return;
+            all_data.forEach(v => {
+                const kurdish = normalize_word(v[0]);
+                const turkishword = normalize_word(v[2]);
+                if((search_mode === "kurdish" && kurdish.includes(q)) || (search_mode === "turkish" && turkishword.includes(q))) {
+                    let shown = search_mode === "kurdish" ? v[0] : v[2];
+                    const filename = normalize_word(kurdish.split(",")[0].trim());
+                    const li = document.createElement("li");
+                    li.innerHTML = '<a href="sayfalar/' + filename + '.html">' + shown + '</a>';
+                    ul.appendChild(li);
+                }
+            });
+        }
+        
+        window.onload = function() {
+            const random_word = all_data[Math.floor(Math.random() * all_data.length)];
+            const kurdish = random_word[0];
+            const filename = normalize_word(kurdish.split(",")[0].trim());
+            const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
+            document.getElementById("suggested_word").innerHTML = link;
+            
+            // 🟢 BAŞLANGIÇ DİLİ ETİKETİNİ ETKİNLEŞTİR (Kürtçe) 🟢
+            document.getElementById("label-kurd").classList.add("active");
+        }
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>

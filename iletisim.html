@@ -8,18 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
     body {
         font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
         margin: 0;
-        background-color: #f4f4f4;
-        color: #222;
+        background-color: #EBEAE6;
+        color: #21421e;
         overflow: scroll;
+        overscroll-behavior: none;
     }
     body::-webkit-scrollbar {
         display: none;
     }
     .navbar {
-    background: #21421e;
+    background-image: linear-gradient(180deg, #21421e, #122010);
     color: white;
     padding: 15px 30px; 
     display: flex;
@@ -47,7 +55,7 @@
         color: #e6e6e6;
         text-decoration: none;
         margin-left: 20px;
-        font-size: 16px;
+        font-size: 1rem;
     }
     .nav-links a:hover {
         color: #ffffff;
@@ -56,7 +64,7 @@
         max-width: 900px;
         margin: 40px auto;
         padding: 30px;
-        background: rgba(255, 255, 255, 0.5);
+        background: #FFFFFFE6;
         border-radius: 24px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -65,7 +73,7 @@
         font-size: 16px;
     }
     .footer a {
-        color: #0f1f0e;
+        color: #21421e;
         text-decoration: none;
         margin: 0 10px;
     }
@@ -73,9 +81,9 @@
 
     <style>
         h1 { font-size: 32px; margin-bottom: 20px; }
-        p { font-size: 18px; line-height: 1.6em; }
-                .navbarnew {
-            background: #21421e;
+        p { font-size: 1rem; line-height: 1.6em; }
+            .navbarnew {
+            background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
@@ -86,12 +94,13 @@
 
 .home-link {
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 8px;
     text-decoration: none;
     color: #e6e6e6;
     font-size: 16px;
     font-weight: bold;
+    margin: 5px;
         }
 
 .home-link img {
@@ -108,6 +117,14 @@
 .home-link:hover span {
     color: #ffffff;
 }
+a {
+color: #21823f;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -119,8 +136,8 @@
     </div>
     <div class="container">
         <h1>İletişim</h1>
-        <p>İlgili iletişim adresini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul></p>
-        <p>Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a></p>
+        <p>İletişim adreslerini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul></p>
+        <p>Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a><br>Geri bildirimleriniz için Google Formlar adresini de kullanabilirsiniz: <a href='https://forms.gle/rzmShxf7H4sY8ycU7'>Google Formlar</a></p>
     </div>
 </body>
 <script>

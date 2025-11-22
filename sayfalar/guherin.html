@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>guherîn - Daristana Peyvan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="../resources/favicon.svg">
+    
+<style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
+        margin: 0;
+        background-color: #EBEAE6;
+        color: #21421e;
+        overflow: scroll;
+        overscroll-behavior: none;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .navbar {
+    background-image: linear-gradient(180deg, #21421e, #122010);
+    color: white;
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1rem;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #FFFFFFE6;
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #21421e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+    <style>
+        h1 { font-size: 2.2rem; }
+        .wordtype { font-style: italic; color: #21421e; font-size: 1rem; margin-bottom: 20px; }
+        p { font-size: 1.2rem; line-height: 1.6em; }
+        .extra {
+            margin-top: 30px;
+            font-size: 1rem;
+            background: #21421e08;
+            padding: 15px;
+            border-left: 3px solid #21421e1c;
+            border-right: 3px solid #21421e1c;
+            border-radius: 24px;
+            color: #21421e;
+        }
+        .copy-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+            color: #365e58;
+        }
+        .copy-btn:hover {
+            color: #21421e;
+        }
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #21421e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbarnew {
+            background-image: linear-gradient(180deg, #21421e, #122010);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }
+
+        .home-link {
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+        }
+
+        .home-link img {
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}
+
+.home-link img:hover {
+    filter: invert(100%);
+    transform: scale(1.1);
+}
+
+.home-link:hover span {
+    color: #ffffff;
+}
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+    <a href="../index.html" class="home-link" title="Ana Sayfa">
+    <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+    <span>Ana Sayfa</span>
+</a>
+    </div>
+    <div class="container">
+        <div class="title-bar">
+            <h1>guherîn</h1>
+            <button class="copy-btn" onclick="copyPageUrl()" title="Bağlantıyı Kopyala">
+                <img src="../resources/copy.svg" alt="Kopyala" width="24" height="24">
+                <span class="checkmark" style="display:none;">✅</span>
+            </button>
+        </div>
+        <div class="wordtype">lêker - fiil</div>
+        <p>değişmek</p>
+        <div class="extra"></div>
+    </div>
+    <div class="footer">
+        <a href="../hakkinda.html">Hakkında</a> |
+        <a href="../iletisim.html">İletişim</a>
+    </div>
+
+    <script>
+        function copyPageUrl() {
+            const url = window.location.href;
+            const checkmark = document.querySelector('.copy-btn .checkmark');
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(() => showCheckmark()).catch(() => {
+                    fallbackCopy(url);
+                    showCheckmark();
+                });
+            } else {
+                fallbackCopy(url);
+                showCheckmark();
+            }
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.setAttribute('readonly', '');
+                textarea.style.position = 'absolute';
+                textarea.style.left = '-9999px';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            function showCheckmark() {
+                checkmark.style.display = 'inline';
+                setTimeout(() => {
+                    checkmark.style.display = 'none';
+                }, 1000);
+            }
+        }
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>

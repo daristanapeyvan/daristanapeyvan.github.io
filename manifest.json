@@ -1,9 +1,9 @@
 {
   "name": "Daristana Peyvan",
-  "short_name": "Sözlük",
+  "short_name": "Ferheng",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#f4f4f4",
+  "background_color": "#21421e",
   "theme_color": "#21421e",
   "icons": [
     {

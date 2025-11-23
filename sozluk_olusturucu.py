@@ -113,6 +113,7 @@ joint_css = """
 # sözlük sayfalarını oluştur
 for data in all_data:
     kurdish, wordtype, turkish, extra = data
+    extra = extra.replace("<es>", "<h3>Hevoka Mînak - Örnek Cümle</h3>")
     file_name = normalize_word(kurdish)
     # csv kısaltmalarını çözme
     wordtype_full = wordtype_map.get(wordtype.strip().lower(), wordtype)
@@ -132,13 +133,18 @@ for data in all_data:
         h1 {{ font-size: 2.2rem; }}
         .wordtype {{ font-style: italic; color: #21421e; font-size: 1rem; margin-bottom: 20px; }}
         p {{ font-size: 1.2rem; line-height: 1.6em; }}
+
+        .extra h3 {{
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }}
+
         .extra {{
             margin-top: 30px;
             font-size: 1rem;
             background: #21421e08;
             padding: 15px;
-            border-left: 3px solid #21421e1c;
-            border-right: 3px solid #21421e1c;
             border-radius: 24px;
             color: #21421e;
         }}
@@ -828,8 +834,8 @@ manifest_json = {
     "background_color": "#21421e",
     "theme_color": "#21421e",
     "icons": [
-        {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
-        {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
+        {"src": "/resources/icon-192.png", "sizes": "192x192", "type": "image/png"},
+        {"src": "/resources/icon-512.png", "sizes": "512x512", "type": "image/png"}
     ]
 }
 

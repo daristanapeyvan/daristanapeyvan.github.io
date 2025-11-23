@@ -3,13 +3,13 @@
 "ba hatin, gobilîn",v,esmek,
 "bang kirin, gazî kirin",v,çağırmak,
 "bedew,spehî",adj,güzel,
-"belav kirin,parve kirin",v,paylaşmak,<b>Hevoka Mînak - Örnek Cümle</b><br>Min îro tiştek belav kir.<br>Ben bugün bir şey paylaştım.
+"belav kirin,parve kirin",v,paylaşmak,<es>Min îro tiştek belav kir.<br>Ben bugün bir şey paylaştım.
 "berdewam kirin, domîn",v,devam etmek,
-"bermalî,kevanî",n,ev hanımı,<b>Hevoka Mînak - Örnek Cümle</b><br>Mala bê kevanî bê xweyî ye<br>Hanımı olmayan bir ev sahipsizdir.
+"bermalî,kevanî",n,ev hanımı,<es>Mala bê kevanî bê xweyî ye<br>Hanımı olmayan bir ev sahipsizdir.
 "bexşandin, efû kirin",v,affetmek,
 "beyanî baş, rojbaş",exp,günaydın,
 "bi xêr hatin",exp,hoşgeldin,
-"bîbî, met",n,hala,Meta min jiyana xwe ji dest da. <br> Halam hayatını kaybetti. (Met)
+"bîbî, met",n,hala,Meta min jiyana xwe ji dest da.<br>Halam hayatını kaybetti. (Met)
 "carina,carna",belirtisiz zamir,bazen,
 "dadger, dadwer",n,hakim,
 "darîkirn, mêrandin",v,göstermek,
@@ -30,7 +30,7 @@
 "giş,tev",belirtisiz zamir,bütün,
 "guh dan, guhdarî kirin",v,dinlemek,
 "hemî,hemû",belirtisiz zamir,"hepsi,tüm",
-"her bijî",exp,bravo/yaşa,<b>Hevoka Mînak - Örnek Cümle</b><br>Her bijî zimanê Kurdî!<br>Yaşasın Kürt dili!
+"her bijî",exp,bravo/yaşa,<es>Her bijî zimanê Kurdî!<br>Yaşasın Kürt dili!
 "hin,hinek",belirtisiz zamir,"bazı,biraz",
 "i bi xeter, bi talûke",söz öbeği,tehlikeli,
 "kin,kurt",adj,kısa,
@@ -39,26 +39,26 @@
 "lez kirin, lezîn",v,acele etmek,
 "ling, pê",n,ayak,
 "lêdan, jenîn",v,çalmak (müzik),
-"mam, ap",n,amca,<b>Hevoka Mînak - Örnek Cümle</b><br>Apê min çûye kar.<br>Amcam işe gitmiş. (Ap)
+"mam, ap",n,amca,<es>Apê min çûye kar.<br>Amcam işe gitmiş. (Ap)
 "mezin bûn, gir bûn",v,büyümek,
 "mezin,gir",adj,büyük,
 "mijûl, tijî",sıfat,"meşgul, dolu",
 "ne xirab im",exp,fena değilim.,
-"nebe,nebê,nebî",part,sakın,<b>Hevoka Mînak - Örnek Cümle</b><br>Nebe tu werî<br>Sakın gelmeyesin/gelme!
+"nebe,nebê,nebî",part,sakın,<es>Nebe tu werî<br>Sakın gelmeyesin/gelme!
 "nîşan dan, rayî kirin",v,göstermek,
 "peyda kirin, dîtin",v,bulmak,
 "pir,zef,gelek",adv,çok,
 "piçekî westiyayî me",exp,biraz yorgunum.,
 "pênivîs, pênûs",n,kalem,
-"qaşo,qaşokî",adj,"sözde,güyâ",<b>Hevoka Mînak - Örnek Cümle</b><br>Qaşo tu yê bihatayî.<br>Sözde gelecektin.
+"qaşo,qaşokî",adj,"sözde,güyâ",<es>Qaşo tu yê bihatayî.<br>Sözde gelecektin.
 "qeresî, gêlaz",n,kiraz,
 "qevizîn, hilavêtin",v,atlamak,
 "rave kirin, daxuyandin",v,açıklamak,
 "rawestîn, sekinîn",v,beklemek,
-"rojbaş",exp,günaydın,<b>Hevoka Mînak - Örnek Cümle</b><br>Rojbaş Serhat!<br>Günaydın Serhat!
+"rojbaş",exp,günaydın,<es>Rojbaş Serhat!<br>Günaydın Serhat!
 "sef, sinif",n,sınıf,
 "sifir, tine",n,sıfır,
-"spas",exp,teşekkürler,<b>Hevoka Mînak - Örnek Cümle</b><br>Gelek spas ji we hemûyan re<br>Hepinize çok teşekkür ederim.
+"spas",exp,teşekkürler,<es>Gelek spas ji we hemûyan re<br>Hepinize çok teşekkür ederim.
 "standin, wergirtin",v,almak,
 "tevê kirin, veser kirin",v,eklemek,
 "tilî,peçi",n,parmak,
@@ -84,7 +84,7 @@
 "çêlek, mange",n,inek,
 "şaş, nerast, xelet",n,"yanlış",
 "şerav, mey",n,şarap,
-"şevbaş",exp,iyi geceler,<b>Hevoka Mînak - Örnek Cümle</b><br>Şevbaş Rojda!<br>İyi geceler Rojda!
+"şevbaş",exp,iyi geceler,<es>Şevbaş Rojda!<br>İyi geceler Rojda!
 "şolik, şoqil",n,bezelye,
 "şêwekar,wênesaz",n,ressam,
 (1) yek,num,bir,
@@ -188,7 +188,7 @@ baran,n,yağmur,
 barandin,v,"yağdırmak",
 barke,adv,galiba,
 barîn,v,"yağmak",
-bav,n,baba,<b>Hevoka Mînak - Örnek Cümle</b><br>Bavê min ne li malê ye <br> Babam evde değil. (Bav)
+bav,n,baba,<es>Bavê min ne li malê ye<br>Babam evde değil. (Bav)
 bawer kirin,v,inanmak,
 baxçevan,n,bahçıvan,
 baz,n,şahin,
@@ -232,7 +232,7 @@ beytar,n,veteriner,
 bezandin,v,"koşturmak",
 bezin,v,"koşmak",
 bi min,exp,bence,
-bi ser de,exp,"hatta,üstelik",<b>Hevoka Mînak - Örnek Cümle</b><br>Bi ser de min dît jî.<br>Hatta beni gördü de.
+bi ser de,exp,"hatta,üstelik",<es>Bi ser de min dît jî.<br>Hatta beni gördü de.
 bi xatirê te,exp,hoşçakal,
 bi xweda,n,vallahi,
 bi,edat,ile,
@@ -241,7 +241,7 @@ biborîne,exp,afedersin,
 bibûre,n,pardon,
 bidest xistin,v,elde etmek,
 bidîmen,adj,görüntülü,
-bigelamperî,adv,"genellikle,genel olarak",<b>Hevoka Mînak - Örnek Cümle</b><br>Em bi gelemperî li vir dijîn.<br>Biz genellikle burada oturuyoruz.
+bigelamperî,adv,"genellikle,genel olarak",<es>Em bi gelemperî li vir dijîn.<br>Biz genellikle burada oturuyoruz.
 bigelemperî,adv,genellikle,
 biha,adj,pahalı,
 bihar,n,"bahar, ilkbahar",
@@ -256,7 +256,7 @@ bingeh,n,esas,
 bingeh,n,temel,
 bipaş xistin,v,ertelemek,
 bipiranî,adv,çoğunlukla,
-bipiranî,adv,çoğunlukla,<b>Hevoka Mînak - Örnek Cümle</b><br>Em bi piranî zû radizên.<br>Biz çoğunlukla erken uyuruz.
+bipiranî,adv,çoğunlukla,<es>Em bi piranî zû radizên.<br>Biz çoğunlukla erken uyuruz.
 bipêş xistin,v,geliştirmek,
 bira,n,abi,
 biraştin,v,"izgara etmek",
@@ -283,7 +283,7 @@ boyax kirin,v,boyamak,
 boyaxvan,n,boyacı,
 bêbextî,n,ihanet,
 bêdawî,n,ebedi,
-bêguman,adv,"şüphesiz,kuşkusuz",<b>Hevoka Mînak - Örnek Cümle</b><br>Bêguman ew ên werin.<br>Kuşkusuz onlar gelecek.
+bêguman,adv,"şüphesiz,kuşkusuz",<es>Bêguman ew ên werin.<br>Kuşkusuz onlar gelecek.
 bêhempa,sıfat,benzersiz,
 bêhna xwe dan,v,dinlenmek,
 bêhnfireh,adj,sabırlı,
@@ -347,7 +347,7 @@ daxistin,n,indirim,
 daxistin,v,kapatmak,
 daxwaz kirin,v,dilemek,
 daxwaz kirin,v,talep etmek,
-dayik,n,anne,<b>Hevoka Mînak - Örnek Cümle</b><br>Dayika min îro nexweş e. <br> Annem bugün hastadır. (Dayik)
+dayik,n,anne,<es>Dayika min îro nexweş e.<br>Annem bugün hastadır. (Dayik)
 debar,n,geçim,
 debeng,adj,aptal,
 defter,n,defter,
@@ -360,7 +360,7 @@ dengbêj,n,halk ozanı,
 derbas bûn,v,geçmek,"Bir yerden geçmek, bir yere geçmek manasında olan kullanım."
 derdor,n,çevre,
 dergevan,n,kapıcı,
-derhêl (offline),n,çevrim dışı,<b>Hevoka Mînak - Örnek Cümle</b><br>Na ew vê gavê derhêl e.<br>Hayır o şimdilik çevrim dışı
+derhêl (offline),n,çevrim dışı,<es>Na ew vê gavê derhêl e.<br>Hayır o şimdilik çevrim dışı
 derman,n,ilaç,
 dermanfiroş,n,eczacı,
 dermanxane,n,eczane,
@@ -405,7 +405,7 @@ dirûvîn,v,benzemek,
 diş,n,baldız,
 domandin,v,"devam etm.,sürdürmek",
 dotin,v,"sağmak",
-dotmam,n,amca kızı,<b>Hevoka Mînak - Örnek Cümle</b><br>Dotmama min hinda bûye. <br> Amca kızım kaybolmuş. (Dotmam)
+dotmam,n,amca kızı,<es>Dotmama min hinda bûye.<br>Amca kızım kaybolmuş. (Dotmam)
 dozger,n,savcı,
 dunik,n,tırnak işareti,
 duşem,n,pazartesi,
@@ -423,13 +423,13 @@ dîwar,n,duvar,
 dûgel,n,devlet,
 dûpişk,n,akrep,
 eciban,n,beğeni,
-ecibandin,v,beğenmek,<b>Hevoka Mînak - Örnek Cümle</b><br>Min wêneyê te eciband.<br>Ben fotoğrafını beğendim.
+ecibandin,v,beğenmek,<es>Min wêneyê te eciband.<br>Ben fotoğrafını beğendim.
 elektrîkvan,n,elektrikçi,
 em,pron,biz,
 emlaqfiroş,n,emlakçı,
 encam,n,sonuç,
 endam,n,üye,
-endazyar,n,mühendis,<b>Hevoka Mînak - Örnek Cümle</b><br>Xwezî ez bibûma endazyarê avahiya.<br>Keşke inşaat mühendisi olsaydım.
+endazyar,n,mühendis,<es>Xwezî ez bibûma endazyarê avahiya.<br>Keşke inşaat mühendisi olsaydım.
 enişk,n,dirsek,
 enî,n,alın,
 erd,n,"yer,toprak",
@@ -481,7 +481,7 @@ garson,n,garson,
 gav,n,adım,
 gazin,n,şikayet,
 gelemper,n,umumi,
-gelemperî,adj,genel,<b>Hevoka Mînak - Örnek Cümle</b><br>Em bi gelemperî li vir dijîn.<br>Biz genellikle burada oturuyoruz.
+gelemperî,adj,genel,<es>Em bi gelemperî li vir dijîn.<br>Biz genellikle burada oturuyoruz.
 gellek,belirtisiz zamir,"birçok,birsürü",
 gelo,part,acaba,
 gelêrî,n,anonim,
@@ -609,7 +609,7 @@ hûn çawa ne?,exp,nasılsınız?,
 hûn,pron,siz,
 incas,n,siyah erik,
 jar,adj,zayıf,
-ji ber vê yekê,exp,bundan dolayı,<b>Hevoka Mînak - Örnek Cümle</b><br>Ji ber vê yekê em jî hatin.<br>Bundan dolayı biz de geldik.
+ji ber vê yekê,exp,bundan dolayı,<es>Ji ber vê yekê em jî hatin.<br>Bundan dolayı biz de geldik.
 ji bîr kirin,v,unutmak,
 ji kerema xwe,exp,lütfen,
 ji nişkê ve,adv,aniden,
@@ -619,7 +619,7 @@ jimaryarî,n,muhasebe,
 jin,n,kadın,
 jinbav,n,üvey anne,
 jintî,n,elti,
-jinxal,n,dayı eşi,<b>Hevoka Mînak - Örnek Cümle</b><br>Jinxala min çû nexweşxanê. <br> Yengem hastaneye gitti. (Jinxal)
+jinxal,n,dayı eşi,<es>Jinxala min çû nexweşxanê.<br>Yengem hastaneye gitti. (Jinxal)
 jixwe,adv,zaten,
 jiyan,n,hayat,
 jiyandin,v,yaşatmak,
@@ -715,7 +715,7 @@ lê gerîn,v,aramak,"Kayıp bir şeyi aramak manasında olan kullanım."
 lê,"bağlaç, edat, zarf",ama,
 lêborîn,v,affetmek,
 lêgerîn,n,arama,
-lêgerîna bidîmen,n,görüntülü arama,<b>Hevoka Mînak - Örnek Cümle</b><br>Tu dikarî min bi bidîmen bigerî?<br>Beni görüntülü arayabilir misin?
+lêgerîna bidîmen,n,görüntülü arama,<es>Tu dikarî min bi bidîmen bigerî?<br>Beni görüntülü arayabilir misin?
 lêhûrbûn,n,konsantrasyon,
 lêkirin,v,giydirmek,
 lêkolîn kirin,v,araştırmak,
@@ -762,7 +762,7 @@ morîk,n,boncuk,
 moşek,n,roket,
 muxtar,n,muhtar,
 muzîkjen,n,müzisyen,
-mêr,n,adam,<b>Hevoka Mînak - Örnek Cümle</b><br>Mêrên baş zehf kêm in. <br> İyi adamlar çok azdır. (Mêr)
+mêr,n,adam,<es>Mêrên baş zehf kêm in.<br>İyi adamlar çok azdır. (Mêr)
 mêrxas,adj,cesur,
 mêvan,n,misafir,
 mêxik,n,karanfil,
@@ -839,7 +839,7 @@ paqij,adj,temiz,
 parastin,v,"savunmak",
 parastin,v,korumak,
 pars kirin,v,dilenmek,
-parêzer,n,avukat,<b>Hevoka Mînak - Örnek Cümle</b><br>Tu dikarî ji min re parêzerekî bigirî?<br>Bana bir avukat tutabilir misin?
+parêzer,n,avukat,<es>Tu dikarî ji min re parêzerekî bigirî?<br>Bana bir avukat tutabilir misin?
 parêzgeh,n,bölge,
 parêzgeh,n,il,
 parêzgerî,n,valilik,
@@ -863,7 +863,7 @@ peyman,n,antlaşma,
 peyv,n,"kelime, sözcük",
 peyvandin,v,"konuşturmak",
 pifdank,n,balon,
-piranî,adj,çoğunluk,<b>Hevoka Mînak - Örnek Cümle</b><br>Em bi piranî zû radizên.<br>Biz çoğunlukla erken uyuruz.
+piranî,adj,çoğunluk,<es>Em bi piranî zû radizên.<br>Biz çoğunlukla erken uyuruz.
 pirejimar,n,çoğul,
 pirole kirin,v,abartmak,
 pirsgirêk,n,sorun,
@@ -871,7 +871,7 @@ pirsnişan,n,soru işareti,
 pirsîn,v,sormak,
 pirtûk,n,kitap,
 pirtûkfiroş,n,kitapçı,
-pismam,n,amca oğlu,<b>Hevoka Mînak - Örnek Cümle</b><br>Pismamê min zehf yekî qenc e. <br> Amcaoğlum çok iyi biridir. (Pismam)
+pismam,n,amca oğlu,<es>Pismamê min zehf yekî qenc e.<br>Amcaoğlum çok iyi biridir. (Pismam)
 pisîk_,n,kedi,
 piyari,n,rahmet,
 piçek,adv,azıcık,
@@ -920,7 +920,7 @@ qemer,adj,kahverengi,
 qeqlîbaz,n,martı,
 qerisîn,v,"donmak",
 qerta qrediyê,n,kredi kartı,
-qet nebe,exp,"hiç değilse,en azından",<b>Hevoka Mînak - Örnek Cümle</b><br>Qet nebe tu were.<br>En azından sen gel.
+qet nebe,exp,"hiç değilse,en azından",<es>Qet nebe tu were.<br>En azından sen gel.
 qetandin,v,"koparmak,yırtmak",
 qetandin,v,ayırmak,"Parçaya ayırmak manasında olan kullanım."
 qetîn,v,"kopmak,yırtılmak",
@@ -1012,7 +1012,7 @@ ser,n,baş,
 serek,n,şef,
 sereke,n,asıl,
 sererast kirin,v,edit,
-serhêl (online),n,çevrim içi,<b>Hevoka Mînak - Örnek Cümle</b><br>Gelo ew niha serhêl e?<br>Acaba o şuan çevrim içi mi(online)?
+serhêl (online),n,çevrim içi,<es>Gelo ew niha serhêl e?<br>Acaba o şuan çevrim içi mi(online)?
 sermiyan,n,sermaye,
 serok,n,başkan,
 serokkomar,n,cumhurbaşkanı,
@@ -1126,7 +1126,7 @@ werkirin,v,fırlatmak,
 westan,v,"yorulmak",
 wezîr,n,bakan,
 weşan,n,yayın,
-weşan,n,yayın,<b>Hevoka Mînak - Örnek Cümle</b><br>Ez ê niha weşana zindî vebikim.<br>Ben şimdi canlı yayın açacağım.
+weşan,n,yayın,<es>Ez ê niha weşana zindî vebikim.<br>Ben şimdi canlı yayın açacağım.
 weşandin,v,"yayımlamak",
 weşîn,v,"dökülmek,yayımlanmak",
 winda bûn,v,kaybolmak,
@@ -1137,11 +1137,11 @@ wêjevan,n,edebiyatçı,
 wênekêş,n,fotoğrafçı,
 wî,pron,onu (eril),
 wîskî,n,viski,
-xal,n,dayı,<b>Hevoka Mînak - Örnek Cümle</b><br>Xalê min birçî bûye. <br> Dayım acıkmış. (Xal)
+xal,n,dayı,<es>Xalê min birçî bûye.<br>Dayım acıkmış. (Xal)
 xal_,n,nokta,
 xalebêhnok,n,noktalı virgül,
 xalecot,n,iki nokta,
-xalet,n,teyze,<b>Hevoka Mînak - Örnek Cümle</b><br>Xaleta min fêm nake. <br> Teyzem anlamıyor. (Xalet)
+xalet,n,teyze,<es>Xaleta min fêm nake.<br>Teyzem anlamıyor. (Xalet)
 xalo,n,dayı,
 xalîçe,n,halı,
 xanî,n,ev,
@@ -1243,7 +1243,7 @@ zîrek,sıfat,zeki,
 çavbirçî,adj,aç gözlü,
 çavtêr,adj,tok gözlü,
 çay,n,çay,
-çayger,n,çaycı,<b>Hevoka Mînak - Örnek Cümle</b><br>Gelo mehanîya çaygeran çiqas e?<br>Acaba çaycıların aylığı ne kadardır?
+çayger,n,çaycı,<es>Gelo mehanîya çaygeran çiqas e?<br>Acaba çaycıların aylığı ne kadardır?
 çekûç,n,çekici,
 çeleng,n,kahraman,
 çember,n,çember,
@@ -1309,8 +1309,8 @@ zîrek,sıfat,zeki,
 şirîn,adj,tatlı,
 şiwit,n,dere otu,
 şkandin,v,kırmak,
-şopandin_,v,takip etmek,<b>Hevoka Mînak - Örnek Cümle</b><br>Tu dikarî min bişopînî?<br>Beni takip edebilir misin?
-şopîner,n,takipçi,<b>Hevoka Mînak - Örnek Cümle</b><br>Çend heb şopînerên te hene?<br>Senin kaç tane takipçin var?
+şopandin_,v,takip etmek,<es>Tu dikarî min bişopînî?<br>Beni takip edebilir misin?
+şopîner,n,takipçi,<es>Çend heb şopînerên te hene?<br>Senin kaç tane takipçin var?
 şor,adj,tuzlu,
 şêlû,adj,bulanık,
 şênber,n,somut,
@@ -1318,8 +1318,8 @@ zîrek,sıfat,zeki,
 şêwe,n,"şekil,form",
 şêşem,n,salı,
 şîr_,n,süt,
-şîrove kirin,v,yorumlamak,<b>Hevoka Mînak - Örnek Cümle</b><br>Tu dikarî vê kilamê şîrove bikî?<br>Bu şarkıyı yorumlayabilir misin?
-şîrove,n,yorum,<b>Hevoka Mînak - Örnek Cümle</b><br>Şîroveke xweş binivîse.<br>Güzel bir yorum yaz.
+şîrove kirin,v,yorumlamak,<es>Tu dikarî vê kilamê şîrove bikî?<br>Bu şarkıyı yorumlayabilir misin?
+şîrove,n,yorum,<es>Şîroveke xweş binivîse.<br>Güzel bir yorum yaz.
 şîv,n,akşam yemeği,
 şûjin,n,çuvaldız,
 şûşe,n,bardak,

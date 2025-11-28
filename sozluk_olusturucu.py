@@ -124,10 +124,13 @@ for data in all_data:
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>{kurdish} - Daristana Peyvan</title>
+    <title>{kurdish} - {turkish} Daristana Peyvan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="../resources/favicon.svg">
+    <meta name="description" content="Kürtçe {kurdish} Türkçe ne demek? Türkçe {turkish} Kürtçe ne demek? Anlamı, manası, kelimeleri bul ve keşfet. ">
+    <meta name="keywords" content="Kürtçe {kurdish} Türkçe ne demek?, Türkçe {turkish} Kürtçe ne demek?, anlam, kelime, kürtçe - türkçe sözlük, {turkish} kürtçe nasıl denir">
+    <meta name="robots" content="index, follow">
     {joint_css}
     <style>
         h1 {{ font-size: 2.2rem; }}
@@ -286,7 +289,8 @@ with open(index_path, "w", encoding="utf-8") as index:
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük hizmeti sağlar...">
-    <meta name="keywords" content="Kürtçe-Türkçe, Sözlük">
+    <meta name="keywords" content="Kürtçe-Türkçe, Sözlük, kürtçe-türkçe sözlük, daristana peyvan">
+    <meta name="robots" content="index, follow">
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">

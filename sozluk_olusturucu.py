@@ -591,6 +591,9 @@ input:checked + .slider:before {{
             margin-top: 30px;
             font-size: 1.1rem;
         }}
+        .iconbox {{
+        vertical-align: bottom;
+        }}
 
         #search {{
         width: 50%;
@@ -637,7 +640,7 @@ input:checked + .slider:before {{
     <div class="navbar">
         <h1 class="title-text">Daristana Peyvan</h1>
         <div class="nav-links">
-            <a href="alfabetik_dizin.html" title="Alfabetik Dizin">A-Z</a> <a href="kelimekutusu.html">🎁</a>
+            <a href="kelimekutusu.html"><img class="iconbox" src="./resources/kutu.svg" alt="Kelime Kutusu" width="22" height="22"></a>
             <a href="hakkinda.html">Hakkında</a>
             <a href="iletisim.html">İletişim</a>
             <a href="https://github.com/daristanapeyvan/daristanapeyvan.github.io">GitHub</a>
@@ -864,7 +867,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         body {{
             font-family: 'Tahoma', "Geneva", sans-serif;
             margin: 0;
-            background-color: #21421e;
+            background-color: #EBEAE6;
             color: #21421e;
             overflow: scroll;
             text-align: center;
@@ -907,7 +910,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
             max-width: 900px;
             margin: 40px auto;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.5);
+            background: #FFFFFFE6;
             border-radius: 24px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }}

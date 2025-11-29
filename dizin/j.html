@@ -93,6 +93,33 @@
             align-items: center;
             box-shadow: 0 4px .0px #708A58;
         }
+        
+        .home-link {
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+        }
+
+        .home-link img {
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}
+
+.home-link img:hover {
+    filter: invert(100%);
+    transform: scale(1.1);
+}
+
+.home-link:hover span {
+    color: #ffffff;
+}
+
     </style>
 </head>
 <body>
@@ -100,9 +127,6 @@
         <a href="../index.html" class="home-link" title="Ana Sayfa">
             <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
             <span>Ana Sayfa</span>
-        </a>
-        <a href="alfabetik_dizin.html" class="home-link" style="margin-left: 20px;">
-            <span>Alfabetik Dizin</span>
         </a>
     </div>
     <div class="container">

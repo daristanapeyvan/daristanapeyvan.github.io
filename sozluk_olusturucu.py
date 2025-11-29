@@ -135,7 +135,7 @@ joint_css = """
 </style>
 """
 
-# sözlük sayfalarını oluştur (MEVCUT KOD BLOKU - DEĞİŞMEDİ)
+# sözlük sayfalarını oluştur
 for data in all_data:
     kurdish, wordtype, turkish, extra = data
     extra = extra.replace("<es>", "<h3>Hevoka Mînak - Örnek Cümle</h3>")
@@ -299,20 +299,16 @@ for data in all_data:
 </body>
 </html>""")
 
-# --- YENİ KOD BAŞLANGICI: Harf Dizin Sayfalarını Oluşturma ---
-# Harf dizin sayfalarını oluşturma (e.g., dizin/A.html, dizin/B.html)
 for letter in sorted_letters:
     letter_data = grouped_data[letter]
     
     list_items = []
     for kurdish, _, turkish, _ in letter_data:
         file_name = normalize_word(kurdish) 
-        # ÖNEMLİ: Linkler /dizin klasöründen /sayfalar klasörüne gitmeli
         list_items.append(f'<li><a href="../sayfalar/{file_name}.html">{kurdish} </a><span style="color:#666;">({turkish})</span></li>')
     
     list_html = '\n'.join(list_items)
     
-    # HTML yapısı
     dizin_html = f"""
 <!DOCTYPE html>
 <html lang="tr">
@@ -336,6 +332,33 @@ for letter in sorted_letters:
             align-items: center;
             box-shadow: 0 4px .0px #708A58;
         }}
+        
+        .home-link {{
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    text-decoration: none;
+    color: #e6e6e6;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+        }}
+
+        .home-link img {{
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}}
+
+.home-link img:hover {{
+    filter: invert(100%);
+    transform: scale(1.1);
+}}
+
+.home-link:hover span {{
+    color: #ffffff;
+}}
+
     </style>
 </head>
 <body>
@@ -343,9 +366,6 @@ for letter in sorted_letters:
         <a href="../index.html" class="home-link" title="Ana Sayfa">
             <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
             <span>Ana Sayfa</span>
-        </a>
-        <a href="alfabetik_dizin.html" class="home-link" style="margin-left: 20px;">
-            <span>Alfabetik Dizin</span>
         </a>
     </div>
     <div class="container">
@@ -361,10 +381,7 @@ for letter in sorted_letters:
     file_path = os.path.join(dizin_folder_path, f"{letter.lower()}.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(dizin_html)
-# --- YENİ KOD BİTİŞİ ---
 
-# --- YENİ KOD BAŞLANGICI: Ana Alfabetik Dizin Sayfası ---
-# Ana Alfabetik Dizin sayfasını oluşturma (alfabetik_dizin.html)
 alfabetik_dizin_links = []
 for letter in sorted_letters:
     count = len(grouped_data[letter])
@@ -425,6 +442,21 @@ alfabetik_dizin_html_content = f"""
             font-weight: bold;
             margin: 5px;
         }}
+        
+        .home-link img {{
+    vertical-align: middle;
+    filter: invert(85%);
+    transition: 0.2s ease;
+}}
+
+.home-link img:hover {{
+    filter: invert(100%);
+    transform: scale(1.1);
+}}
+
+.home-link:hover span {{
+    color: #ffffff;
+}}
     </style>
 </head>
 <body>

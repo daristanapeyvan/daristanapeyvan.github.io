@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Kelime Kutusu - Daristana Peyvan</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <title>Alfabetik Sözlük Dizinleri - Daristana Peyvan</title>
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <style>
@@ -80,23 +80,35 @@
 </style>
 
     <style>
-        body {
-            font-family: 'Tahoma', "Geneva", sans-serif;
-            margin: 0;
-            background-color: #21421e;
-            color: #21421e;
-            overflow: scroll;
+        h1 { text-align: center; margin-bottom: 30px; }
+        .letter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+            justify-content: center;
             text-align: center;
+            margin-top: 30px;
         }
-        body::-webkit-scrollbar {
-            display: none;
+        .letter-grid a {
+            display: block;
+            padding: 15px 5px;
+            background-color: #33662e;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            font-size: 1.1rem;
+        }
+        .letter-grid a:hover {
+            background-color: #4a8045;
         }
         .navbarnew {
             background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
             box-shadow: 0 4px .0px #708A58;
         }
@@ -110,62 +122,52 @@
             font-weight: bold;
             margin: 5px;
         }
-        .home-link img {
-            vertical-align: middle;
-            filter: invert(85%);
-            transition: 0.2s ease;
-        }
-        .home-link img:hover {
-            filter: invert(100%);
-            transform: scale(1.1);
-        }
-        .home-link:hover span {
-            color: #ffffff;
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        h1 {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .container a {
-            display: block;
-            font-size: 1rem;
-            margin: 10px 0;
-            color: #21421e;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.2s ease;
-        }
-        .container a:hover {
-            color: #000;
-        }
     </style>
 </head>
 <body>
     <div class="navbarnew">
         <a href="./index.html" class="home-link" title="Ana Sayfa">
-            <img src="./resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <img src="resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
             <span>Ana Sayfa</span>
         </a>
     </div>
     <div class="container">
-        <h1>Kelime Kutusu 🎁</h1>
-        <a href="./exp.html">İfadeler ve Günlük Konuşma</a>
-        <a href="./renkler.html">Renkler</a>
-        <a href="./sayilar.html">Rakam & Sayılar</a>
-        <a href="./alfabetik_dizin.html">Alfabetik Dizin</a> </div>
-<script>
-   if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js');
-   }
-</script>
+        <h1>Alfabetik Kelime Dizinleri</h1>
+        <p style="text-align: center; font-size: 1.1rem;">Aşağıdaki harflerden birini seçerek ilgili kelimelere kolayca ulaşabilirsiniz.</p>
+        <div class="letter-grid">
+            <a href="dizin/(.html">( (51)</a>
+<a href="dizin/a.html">A (33)</a>
+<a href="dizin/b.html">B (143)</a>
+<a href="dizin/c.html">C (25)</a>
+<a href="dizin/d.html">D (103)</a>
+<a href="dizin/e.html">E (34)</a>
+<a href="dizin/f.html">F (25)</a>
+<a href="dizin/g.html">G (67)</a>
+<a href="dizin/h.html">H (73)</a>
+<a href="dizin/i.html">I (2)</a>
+<a href="dizin/j.html">J (20)</a>
+<a href="dizin/k.html">K (70)</a>
+<a href="dizin/l.html">L (33)</a>
+<a href="dizin/m.html">M (50)</a>
+<a href="dizin/n.html">N (63)</a>
+<a href="dizin/o.html">O (2)</a>
+<a href="dizin/p.html">P (72)</a>
+<a href="dizin/q.html">Q (40)</a>
+<a href="dizin/r.html">R (61)</a>
+<a href="dizin/s.html">S (62)</a>
+<a href="dizin/t.html">T (47)</a>
+<a href="dizin/v.html">V (22)</a>
+<a href="dizin/w.html">W (24)</a>
+<a href="dizin/x.html">X (65)</a>
+<a href="dizin/y.html">Y (6)</a>
+<a href="dizin/z.html">Z (33)</a>
+<a href="dizin/ç.html">Ç (37)</a>
+<a href="dizin/ê.html">Ê (8)</a>
+<a href="dizin/î.html">Î (3)</a>
+<a href="dizin/û.html">Û (1)</a>
+<a href="dizin/ď.html">Ď (1)</a>
+<a href="dizin/ş.html">Ş (51)</a>
+        </div>
+    </div>
 </body>
 </html>

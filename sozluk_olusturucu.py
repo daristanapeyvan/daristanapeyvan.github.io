@@ -4,6 +4,15 @@ import csv
 import json
 import unicodedata
 
+# --- YENİ GRUPLAMA İÇİN GEREKLİ KLASÖR OLUŞTURMA BAŞLANGICI ---
+# Kelimeleri ilk harfine göre gruplamak için yeni dizin klasörünü oluşturma
+base_dir = os.path.dirname(os.path.abspath(__file__))
+dizin_folder_path = os.path.join(base_dir, "dizin")
+if not os.path.exists(dizin_folder_path):
+    os.mkdir(dizin_folder_path)
+# --- YENİ GRUPLAMA İÇİN GEREKLİ KLASÖR OLUŞTURMA BİTİŞİ ---
+
+
 # klasör yolu oluşturma
 base_dir = os.path.dirname(os.path.abspath(__file__))
 folder_path = os.path.join(base_dir, "sayfalar")
@@ -34,6 +43,22 @@ def normalize_word(k):
     # uyumsuz karakterleri düzeltme fonksiyonu
     k = k.split(",")[0].strip()
     return ''.join(c for c in unicodedata.normalize('NFKD', k) if not unicodedata.combining(c)).lower().replace(" ", "_")
+
+# --- YENİ GRUPLAMA VE DİZİN VERİ HAZIRLIĞI BAŞLANGICI ---
+# Kelimeleri Kürtçe kelimenin ilk harfine göre gruplama
+grouped_data = {}
+for data in all_data:
+    kurdish_word = data[0].strip()
+    first_char = kurdish_word[0].upper() 
+    
+    if first_char not in grouped_data:
+        grouped_data[first_char] = []
+    
+    grouped_data[first_char].append(data)
+
+# Harfleri alfabetik sıraya göre al
+sorted_letters = sorted(grouped_data.keys()) 
+# --- YENİ GRUPLAMA VE DİZİN VERİ HAZIRLIĞI BİTİŞİ ---
 
 # ortak CSS
 joint_css = """
@@ -110,7 +135,7 @@ joint_css = """
 </style>
 """
 
-# sözlük sayfalarını oluştur
+# sözlük sayfalarını oluştur (MEVCUT KOD BLOKU - DEĞİŞMEDİ)
 for data in all_data:
     kurdish, wordtype, turkish, extra = data
     extra = extra.replace("<es>", "<h3>Hevoka Mînak - Örnek Cümle</h3>")
@@ -274,6 +299,155 @@ for data in all_data:
 </body>
 </html>""")
 
+# --- YENİ KOD BAŞLANGICI: Harf Dizin Sayfalarını Oluşturma ---
+# Harf dizin sayfalarını oluşturma (e.g., dizin/A.html, dizin/B.html)
+for letter in sorted_letters:
+    letter_data = grouped_data[letter]
+    
+    list_items = []
+    for kurdish, _, turkish, _ in letter_data:
+        file_name = normalize_word(kurdish) 
+        # ÖNEMLİ: Linkler /dizin klasöründen /sayfalar klasörüne gitmeli
+        list_items.append(f'<li><a href="../sayfalar/{file_name}.html">{kurdish} </a><span style="color:#666;">({turkish})</span></li>')
+    
+    list_html = '\n'.join(list_items)
+    
+    # HTML yapısı
+    dizin_html = f"""
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>'{letter}' Harfiyle Başlayan Kürtçe Kelimeler - Daristana Peyvan</title>
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {joint_css}
+    <style>
+        .container a {{ text-decoration: none; color: #21421e; font-weight: bold; }}
+        ul {{ list-style-type: none; padding: 0; }}
+        li {{ margin-bottom: 8px; font-size: 1.1rem; }}
+        h1 {{ text-align: center; margin-bottom: 30px; }}
+        .navbarnew {{
+            background-image: linear-gradient(180deg, #21421e, #122010);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }}
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="../index.html" class="home-link" title="Ana Sayfa">
+            <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+        <a href="alfabetik_dizin.html" class="home-link" style="margin-left: 20px;">
+            <span>Alfabetik Dizin</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>'{letter}' Harfiyle Başlayan Kelimeler ({len(letter_data)})</h1>
+        <ul>
+            {list_html}
+        </ul>
+    </div>
+</body>
+</html>
+    """
+    
+    file_path = os.path.join(dizin_folder_path, f"{letter.lower()}.html")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(dizin_html)
+# --- YENİ KOD BİTİŞİ ---
+
+# --- YENİ KOD BAŞLANGICI: Ana Alfabetik Dizin Sayfası ---
+# Ana Alfabetik Dizin sayfasını oluşturma (alfabetik_dizin.html)
+alfabetik_dizin_links = []
+for letter in sorted_letters:
+    count = len(grouped_data[letter])
+    # Linkler /dizin klasöründeki harf sayfalarını işaret etmeli
+    alfabetik_dizin_links.append(f'<a href="dizin/{letter.lower()}.html">{letter} ({count})</a>')
+
+dizin_links_html = '\n'.join(alfabetik_dizin_links)
+
+alfabetik_dizin_html_content = f"""
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Alfabetik Sözlük Dizinleri - Daristana Peyvan</title>
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {joint_css}
+    <style>
+        h1 {{ text-align: center; margin-bottom: 30px; }}
+        .letter-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+            justify-content: center;
+            text-align: center;
+            margin-top: 30px;
+        }}
+        .letter-grid a {{
+            display: block;
+            padding: 15px 5px;
+            background-color: #33662e;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            font-size: 1.1rem;
+        }}
+        .letter-grid a:hover {{
+            background-color: #4a8045;
+        }}
+        .navbarnew {{
+            background-image: linear-gradient(180deg, #21421e, #122010);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px .0px #708A58;
+        }}
+        .home-link {{
+            display: flex;
+            align-items: end;
+            gap: 8px;
+            text-decoration: none;
+            color: #e6e6e6;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px;
+        }}
+    </style>
+</head>
+<body>
+    <div class="navbarnew">
+        <a href="./index.html" class="home-link" title="Ana Sayfa">
+            <img src="resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Alfabetik Kelime Dizinleri</h1>
+        <p style="text-align: center; font-size: 1.1rem;">Aşağıdaki harflerden birini seçerek ilgili kelimelere kolayca ulaşabilirsiniz.</p>
+        <div class="letter-grid">
+            {dizin_links_html}
+        </div>
+    </div>
+</body>
+</html>
+"""
+with open(os.path.join(base_dir, "alfabetik_dizin.html"), "w", encoding="utf-8") as f:
+    f.write(alfabetik_dizin_html_content)
+# --- YENİ KOD BİTİŞİ ---
+
 # all_data.js oluştur
 data_json_path = os.path.join(base_dir, "all_data.js")
 with open(data_json_path, "w", encoding="utf-8") as f:
@@ -371,12 +545,12 @@ input:checked + .slider:before {{
         }}
 
         .logo-svg {{
-    display: block;               
+    display: block;             
     margin: 0 auto 14px;        
-    height: auto;                
+    height: auto;               
     max-height: 140px;
-    opacity: 0.5;    
-    margin-top: 5px;              
+    opacity: 0.5;   
+    margin-top: 5px;            
 }}
         ul {{ list-style-type: none; padding: 0; }}
         li {{ margin: 12px 0; }}
@@ -431,7 +605,7 @@ input:checked + .slider:before {{
     <div class="navbar">
         <h1 class="title-text">Daristana Peyvan</h1>
         <div class="nav-links">
-            <a href="kelimekutusu.html">🎁</a>
+            <a href="alfabetik_dizin.html" title="Alfabetik Dizin">A-Z</a> <a href="kelimekutusu.html">🎁</a>
             <a href="hakkinda.html">Hakkında</a>
             <a href="iletisim.html">İletişim</a>
             <a href="https://github.com/daristanapeyvan/daristanapeyvan.github.io">GitHub</a>
@@ -736,7 +910,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         <a href="./exp.html">İfadeler ve Günlük Konuşma</a>
         <a href="./renkler.html">Renkler</a>
         <a href="./sayilar.html">Rakam & Sayılar</a>
-    </div>
+        <a href="./alfabetik_dizin.html">Alfabetik Dizin</a> </div>
 <script>
    if ('serviceWorker' in navigator) {{
         navigator.serviceWorker.register('service-worker.js');
@@ -764,7 +938,7 @@ for page, title, content, extracontent in [
     <style>
         h1 {{ font-size: 32px; margin-bottom: 20px; }}
         p {{ font-size: 1rem; line-height: 1.6em; }}
-            .navbarnew {{
+             .navbarnew {{
             background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
@@ -804,7 +978,7 @@ color: #21823f;
 }}
 
 ul li {{
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }}
 
     </style>

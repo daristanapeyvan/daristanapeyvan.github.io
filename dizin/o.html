@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>İletişim</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="resources/favicon.svg" type="image/xml+svg">
+    <title>'O' Harfiyle Başlayan Kürtçe Kelimeler - Daristana Peyvan</title>
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 <style>
@@ -80,69 +80,38 @@
 </style>
 
     <style>
-        h1 { font-size: 32px; margin-bottom: 20px; }
-        p { font-size: 1rem; line-height: 1.6em; }
-             .navbarnew {
+        .container a { text-decoration: none; color: #21421e; font-weight: bold; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 8px; font-size: 1.1rem; }
+        h1 { text-align: center; margin-bottom: 30px; }
+        .navbarnew {
             background-image: linear-gradient(180deg, #21421e, #122010);
             color: white;
             padding: 15px 30px;
             display: flex;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
             box-shadow: 0 4px .0px #708A58;
         }
-
-.home-link {
-    display: flex;
-    align-items: end;
-    gap: 8px;
-    text-decoration: none;
-    color: #e6e6e6;
-    font-size: 16px;
-    font-weight: bold;
-    margin: 5px;
-        }
-
-.home-link img {
-    vertical-align: middle;
-    filter: invert(85%);
-    transition: 0.2s ease;
-}
-
-.home-link img:hover {
-    filter: invert(100%);
-    transform: scale(1.1);
-}
-
-.home-link:hover span {
-    color: #ffffff;
-}
-a {
-color: #21823f;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
     </style>
 </head>
 <body>
     <div class="navbarnew">
-    <a href="./index.html" class="home-link" title="Ana Sayfa">
-    <img src="resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
-    <span>Ana Sayfa</span>
-</a>
+        <a href="../index.html" class="home-link" title="Ana Sayfa">
+            <img src="../resources/homepage.svg" alt="Ana Sayfa" width="22" height="22">
+            <span>Ana Sayfa</span>
+        </a>
+        <a href="alfabetik_dizin.html" class="home-link" style="margin-left: 20px;">
+            <span>Alfabetik Dizin</span>
+        </a>
     </div>
     <div class="container">
-        <h1>İletişim</h1>
-        <p>İletişim adreslerini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul></p>
-        <p>Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a><br>Geri bildirimleriniz için Google Formlar adresini de kullanabilirsiniz: <a href='https://forms.gle/rzmShxf7H4sY8ycU7'>Google Formlar</a></p>
+        <h1>'O' Harfiyle Başlayan Kelimeler (2)</h1>
+        <ul>
+            <li><a href="../sayfalar/otopark.html">otopark </a><span style="color:#666;">(otopark)</span></li>
+<li><a href="../sayfalar/otoxar.html">otoxar </a><span style="color:#666;">(otogar)</span></li>
+        </ul>
     </div>
 </body>
-<script>
-   if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js');
-   }
-</script>
 </html>
+    

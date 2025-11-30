@@ -1040,16 +1040,25 @@ ul li {{
 
 # manifest.json oluştur
 manifest_json = {
-    "name": "Daristana Peyvan",
-    "short_name": "Ferheng",
-    "start_url": "index.html",
-    "display": "standalone",
-    "background_color": "#21421e",
-    "theme_color": "#21421e",
-    "icons": [
-        {"src": "/resources/icon-192.png", "sizes": "192x192", "type": "image/png"},
-        {"src": "/resources/icon-512.png", "sizes": "512x512", "type": "image/png"}
-    ]
+  "name": "Daristana Peyvan",
+  "short_name": "Ferheng",
+  "start_url": "https://daristanapeyvan.github.io/",
+  "scope": "https://daristanapeyvan.github.io/",
+  "display": "standalone",
+  "background_color": "#21421e",
+  "theme_color": "#21421e",
+  "icons": [
+    {
+      "src": "https://daristanapeyvan.github.io/resources/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://daristanapeyvan.github.io/resources/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
 
 with open(os.path.join(base_dir, "manifest.json"), "w", encoding="utf-8") as mf:

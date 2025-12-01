@@ -191,6 +191,31 @@ input:checked + .slider:before {
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
+        .indirkutusu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        }
+        .indir {
+
+    border-radius: 15px; 
+    height: 75px; 
+    transition: transform 0.3s ease;
+    margin-top: 15px;
+        }
+
+        .indir:hover {
+             transform: translateY(-1px); /* Hafifçe yukarı kalkma efekti */
+             box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Gölgeyi belirginleştir */
+        }
+
+    @media all and (display-mode: standalone) {
+      .indir {
+         display: none;
+      }
+    }
+
         @media (max-width: 600px) {
         .navbar {
             flex-direction: column;
@@ -240,6 +265,9 @@ input:checked + .slider:before {
 </div>
         <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
         <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: 1327 | BETA</div>
+        <div class="indirkutusu"><a href="indir.html" target="_blank">
+    <img alt="yükleme logosu" src="./resources/down.png" class="indir">
+</a></div>
         <div id="suggested_word"></div>
         <ul id="results"></ul>
     </div>

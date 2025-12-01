@@ -611,6 +611,31 @@ input:checked + .slider:before {{
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }}
 
+        .indirkutusu {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        }}
+        .indir {{
+
+    border-radius: 15px; 
+    height: 75px; 
+    transition: transform 0.3s ease;
+    margin-top: 15px;
+        }}
+
+        .indir:hover {{
+             transform: translateY(-1px); /* Hafifçe yukarı kalkma efekti */
+             box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Gölgeyi belirginleştir */
+        }}
+
+    @media all and (display-mode: standalone) {{
+      .indir {{
+         display: none;
+      }}
+    }}
+
         @media (max-width: 600px) {{
         .navbar {{
             flex-direction: column;
@@ -660,6 +685,9 @@ input:checked + .slider:before {{
 </div>
         <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
         <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: {toplam_kelime_sayisi} | BETA</div>
+        <div class="indirkutusu"><a href="indir.html" target="_blank">
+    <img alt="yükleme logosu" src="./resources/down.png" class="indir">
+</a></div>
         <div id="suggested_word"></div>
         <ul id="results"></ul>
     </div>
@@ -958,7 +986,8 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
 # sabit sayfaları oluştur
 for page, title, content, extracontent in [
     ("hakkinda.html", "Hakkında", "<b>Daristana Peyvan Kürtçe - Türkçe Sözlük</b><br> Kürtçe - Türkçe Sözlük ihtiyacına sunulan çözümlerden birisi olmak amacıyla geliştirilen, kar amacı gütmeyen bir projedir. Misyonumuz hem Kürtçe'yi dijital ortamlarda daha görünür kılmak, hem de Kürtçe dili ile çalışma yapmak isteyen veya bu dili öğrenen kullanıcılara erişilebilir, güncel ve güvenilir bir sözlük kaynağı sunmaktır.", "<b> Özellikler </b> <br> <ul> <li>Kürtçe (Kurmanci) veya Türkçe dillerinde girdi araması yapabilirsiniz.</li> <li>Şapkasız harfleri şapkalı karşılıklarına dönüştüren karakter dönüştürme özelliği sayesinde, Kürtçe girdileri aramak için özel Kürtçe harfleri kullanmanız zorunlu değildir.</li> <li>Kelime Kutusu özelliği ile, çeşitli kelimeleri kategorize edilmiş şekilde görüntüleyebilirsiniz.</li> <li>PWA desteğiyle, Web sayfasını cihazınıza bir Web uygulaması olarak yükleyip, hızlı erişim sağlayabilirsiniz.</li> </ul>"),
-    ("iletisim.html", "İletişim", "İletişim adreslerini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul>", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a><br>Geri bildirimleriniz için Google Formlar adresini de kullanabilirsiniz: <a href='https://forms.gle/rzmShxf7H4sY8ycU7'>Google Formlar</a>")
+    ("iletisim.html", "İletişim", "İletişim adreslerini bu hususlarda kullanabilirsiniz.<ul><li>Geliştirici(ler) ile irtibata geçmek.</li><li>Proje ile ilgili öneri, soru, talepler vs.</li><li>Sözlük içeriği ile ilgili hataları ve düzeltmeleri sağlamak.</li></ul>", "Bizimle iletişime geçin: <a href='mailto:projectxurme@gmail.com'>projectxurme@gmail.com</a><br>Geri bildirimleriniz için Google Formlar adresini de kullanabilirsiniz: <a href='https://forms.gle/rzmShxf7H4sY8ycU7'>Google Formlar</a>"),
+    ("indir.html","PWA Klavuzu","PWA, bir web sitesinin telefonda ya da bilgisayarda uygulama biçiminde kullanılmasını sağlayan Web teknolojisidir.<br>Aşağıdaki yönergeleri takip ederek kurulumu gerçekleştirebilirsiniz:","<h3>1. Android Telefonlar (Chrome)</h3><ol><li>Chrome tarayıcısında sitenin ana sayfasını açın.</li><li>Sağ üst köşedeki üç nokta (⋮) menüsüne dokunun.</li><li>Menüden <strong>'Uygulamayı Yükle'</strong> veya <strong>'Ana Ekrana Ekle'</strong> seçeneğine dokunun.</li><li>Çıkan kutucukta <strong>'Yükle'</strong> diyerek onaylayın.</li></ol><h3>2. iPhone ve iPad (iOS - Safari)</h3><ol><li>Safari tarayıcısında sitenin ana sayfasını açın.</li><li>Ekranın altındaki (iPad'de üstteki) <strong>Paylaş</strong> butonuna (kare ve yukarı ok simgesi) dokunun.</li><li>Açılan menüyü yukarı kaydırın ve <strong>'Ana Ekrana Ekle'</strong> seçeneğini bulun.</li><li>Sağ üst köşedeki <strong>'Ekle'</strong> butonuna basın.</li></ol><h3>3. Bilgisayar (Masaüstü Chrome/Edge)</h3><ol><li>Chrome veya Edge tarayıcısında sitenin ana sayfasını açın.</li><li>Adres çubuğunun (URL kısmı) en sağında beliren <strong>küçük bilgisayar/indirme simgesine</strong> tıklayın.</li><li>Çıkan kutucukta <strong>'Yükle'</strong> butonuna tıklayın.</li></ol>")
 ]:
     with open(os.path.join(base_dir, page), "w", encoding="utf-8") as f:
         f.write(f"""<!DOCTYPE html>

@@ -263,10 +263,6 @@ for data in all_data:
         <p>{turkish}</p>
         <div class="extra">{extra}</div>
     </div>
-    <div class="footer">
-        <a href="../hakkinda.html">Hakkında</a> |
-        <a href="../iletisim.html">İletişim</a>
-    </div>
 
     <script>
         function copyPageUrl() {{

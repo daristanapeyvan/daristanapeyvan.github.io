@@ -235,6 +235,13 @@ for data in all_data:
 .home-link:hover span {{
     color: #ffffff;
 }}
+        @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
+
     </style>
 </head>
 <body>
@@ -358,6 +365,12 @@ for letter in sorted_letters:
 .home-link:hover span {{
     color: #ffffff;
 }}
+        @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
 
     </style>
 </head>
@@ -457,6 +470,12 @@ alfabetik_dizin_html_content = f"""
 .home-link:hover span {{
     color: #ffffff;
 }}
+        @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
     </style>
 </head>
 <body>
@@ -657,6 +676,7 @@ input:checked + .slider:before {{
 
         .container {{
         border-radius: 0px;
+        margin: 0px;
         }}
         
         #search {{
@@ -853,6 +873,14 @@ for key, info in categories.items():
             align-items: center;
             box-shadow: 0 4px .0px #708A58;
         }}
+
+                @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
+
     </style>
 </head>
 <body>
@@ -964,6 +992,13 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
         .container a:hover {{
             color: #000;
         }}
+
+                @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
     </style>
 </head>
 <body>
@@ -1049,6 +1084,13 @@ color: #21823f;
 ul li {{
     margin-bottom: 10px;
 }}
+
+        @media (max-width: 600px) {{
+        .container {{
+        border-radius: 0px;
+        margin: 0px;
+        }}
+    }}
 
     </style>
 </head>

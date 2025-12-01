@@ -677,6 +677,7 @@ input:checked + .slider:before {{
         .container {{
         border-radius: 0px;
         margin: 0px;
+        margin-bottom: 18px;
         }}
         
         #search {{

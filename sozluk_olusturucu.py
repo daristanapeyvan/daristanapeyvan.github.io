@@ -654,6 +654,11 @@ input:checked + .slider:before {{
         .title-text {{
             font-size: 22px;
         }}
+
+        .container {{
+        border-radius: 0px;
+        }}
+        
         #search {{
         width: 80%; 
     }}

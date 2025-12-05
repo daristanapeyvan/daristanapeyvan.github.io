@@ -4,13 +4,13 @@ import csv
 import json
 import unicodedata
 
-# --- YENİ GRUPLAMA İÇİN GEREKLİ KLASÖR OLUŞTURMA BAŞLANGICI ---
+
 # Kelimeleri ilk harfine göre gruplamak için yeni dizin klasörünü oluşturma
 base_dir = os.path.dirname(os.path.abspath(__file__))
 dizin_folder_path = os.path.join(base_dir, "dizin")
 if not os.path.exists(dizin_folder_path):
     os.mkdir(dizin_folder_path)
-# --- YENİ GRUPLAMA İÇİN GEREKLİ KLASÖR OLUŞTURMA BİTİŞİ ---
+
 
 
 # klasör yolu oluşturma
@@ -44,7 +44,7 @@ def normalize_word(k):
     k = k.split(",")[0].strip()
     return ''.join(c for c in unicodedata.normalize('NFKD', k) if not unicodedata.combining(c)).lower().replace(" ", "_")
 
-# --- YENİ GRUPLAMA VE DİZİN VERİ HAZIRLIĞI BAŞLANGICI ---
+
 # Kelimeleri Kürtçe kelimenin ilk harfine göre gruplama
 grouped_data = {}
 for data in all_data:
@@ -58,7 +58,7 @@ for data in all_data:
 
 # Harfleri alfabetik sıraya göre al
 sorted_letters = sorted(grouped_data.keys()) 
-# --- YENİ GRUPLAMA VE DİZİN VERİ HAZIRLIĞI BİTİŞİ ---
+
 
 # ortak CSS
 joint_css = """
@@ -319,6 +319,7 @@ for letter in sorted_letters:
     <meta charset="UTF-8">
     <title>'{letter}' Harfiyle Başlayan Kürtçe Kelimeler - Daristana Peyvan</title>
     <meta name="robots" content="index, follow">
+    <meta name="description" content="{letter} Harfiyle başlayan Kürtçe kelimeleri görüntüleyin.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
     <style>
@@ -406,6 +407,7 @@ alfabetik_dizin_html_content = f"""
     <meta charset="UTF-8">
     <title>Alfabetik Sözlük Dizinleri - Daristana Peyvan</title>
     <meta name="robots" content="index, follow">
+    <meta name="description" content="Kürtçe alfabetik sözlük sayfalarını görüntüleyin ve keşfedin.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {joint_css}
     <style>
@@ -509,7 +511,7 @@ with open(index_path, "w", encoding="utf-8") as index:
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük hizmeti sağlar...">
+    <meta name="description" content="Daristana Peyvan, Kürtçe-Türkçe dilleri arası dijital sözlük.">
     <meta name="keywords" content="Kürtçe-Türkçe, Sözlük, kürtçe-türkçe sözlük, daristana peyvan">
     <meta name="robots" content="index, follow">
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
@@ -809,6 +811,7 @@ for key, info in categories.items():
 <head>
     <meta charset="UTF-8">
     <title>{info["title"]} - Daristana Peyvan</title>
+    <meta name="description" content="Kürtçe {info["title"]}">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -917,6 +920,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
 <head>
     <meta charset="UTF-8">
     <title>Kelime Kutusu - Daristana Peyvan</title>
+    <meta name="description" content="Kelime Kutusu ile çeşitli kelimelere erişin.">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1032,6 +1036,7 @@ for page, title, content, extracontent in [
 <head>
     <meta charset="UTF-8">
     <title>{title}</title>
+    <meta name="description" content="{title} Sayfası">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="resources/favicon.svg" type="image/xml+svg">
     <meta name="viewport" content="width=device-width, initial-scale=1">

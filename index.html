@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -9,7 +10,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
+
 <style>
 
     html {
@@ -28,6 +29,83 @@
     }
     body::-webkit-scrollbar {
         display: none;
+    }
+    .navbar {
+    background-image: linear-gradient(180deg, #21421e, #122010);
+    color: white;
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    box-shadow: 0 4px .0px #708A58;
+    }
+    .navbar .title-text {
+        color: #e6e6e6;
+        text-transform: capitalize;
+        white-space: nowrap;
+        font-size: clamp(24px, 4vw, 28px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+    .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+        .nav-links a {
+        color: #e6e6e6;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1rem;
+    }
+    .nav-links a:hover {
+        color: #ffffff;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #FFFFFFE6;
+        border-radius: 24px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+        text-align:center;
+        font-size: 16px;
+    }
+    .footer a {
+        color: #21421e;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+
+<style>
+
+    html {
+    overscroll-behavior: none;
+    font-size: 100%;
+    }
+
+    body {
+        font-family: 'Tahoma', "Geneva", sans-serif;
+        font-size: 1rem;
+        margin: 0;
+        background-color: #EBEAE6;
+        color: #21421e;
+        overflow: scroll;
+        overscroll-behavior: none;
+    }
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    
+    a {
+    text-decoration: none;
+    color: #21421e;
     }
     .navbar {
     background-image: linear-gradient(180deg, #21421e, #122010);
@@ -158,30 +236,63 @@ input:checked + .slider:before {
 
         .logo-svg {
     display: block;             
-    margin: 0 auto 14px;        
+    margin: 0 auto 14px;          
     height: auto;               
     max-height: 140px;
     opacity: 0.5;   
     margin-top: 5px;            
 }
         ul { list-style-type: none; padding: 0; }
-        li { margin: 12px 0; }
-        a { text-decoration: none; color: #21421e;}
-        #suggested_word {
-            margin-top: 30px;
-            font-size: 1.1rem;
-        }
-        .iconbox {
-        vertical-align: bottom;
+        
+        .search-wrapper {
+            position: relative;
+            width: 50%; 
+            margin: 0 auto 25px auto; 
         }
 
+        #results {
+            min-height: 0; 
+            max-height: 250px;
+            overflow-y: auto;            
+            position: absolute; 
+            top: calc(100% - 2px);   
+            left: 0;
+            width: 100%;    
+            background: white;
+            border: 2px solid #33662e;
+            border-top: none; 
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 50; 
+            padding: 0;
+            display: none;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        
+        #results.active {
+            display: block; 
+        }
+
+        #results li {
+            padding: 8px 15px;
+            cursor: pointer;
+            margin: 0; 
+            border-bottom: 1px solid #eee;
+        }
+
+        #results li:last-child {
+            border-bottom: none;
+        }
+        #results li:hover {
+            background-color: #f0f0f0;
+        }
+        
         #search {
-        width: 50%;
-        margin: 0 auto 25px auto;
+        width: 100%; 
         display: block;
         padding: 12px 16px;
         border: 2px solid #33662e;
-        border-radius: 24px;
         outline: none;
         background-image: url('./resources/searchicon.png'); 
         background-position: 10px 10px; 
@@ -189,6 +300,13 @@ input:checked + .slider:before {
         background-size: 20px;
         padding: 12px 20px 12px 40px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        border-radius: 18px;
+        margin-bottom: 0; 
+        box-sizing: border-box;
+        }
+        
+        #search.has-input {
+            border-radius: 18px 18px 0 0; 
         }
 
         .indirkutusu {
@@ -206,13 +324,13 @@ input:checked + .slider:before {
         }
 
         .indir:hover {
-             transform: translateY(-1px); /* Hafifçe yukarı kalkma efekti */
-             box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Gölgeyi belirginleştir */
+             transform: translateY(-1px);
+             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
     @media all and (display-mode: standalone) {
       .indir {
-         display: none;
+          display: none;
       }
     }
 
@@ -241,8 +359,13 @@ input:checked + .slider:before {
         margin-bottom: 18px;
         }
         
+        .search-wrapper {
+            width: 80%;
+            margin: 0 auto 25px auto;
+        }
+
         #search {
-        width: 80%; 
+        width: 100%; 
     }
     }
 
@@ -270,13 +393,17 @@ input:checked + .slider:before {
     </label>
     <span class="lang-label" id="label-turkish">Türkçe</span>
 </div>
+
+    <div class="search-wrapper">
         <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
+        <ul id="results"></ul> 
+    </div>
+
         <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: 1328 | BETA</div>
         <div class="indirkutusu"><a href="indir.html" target="_blank">
     <img alt="yükleme logosu" src="./resources/down.png" class="indir">
 </a></div>
         <div id="suggested_word"></div>
-        <ul id="results"></ul>
     </div>
     <div class="footer">
     <div style="text-align:center; font-size: 0.875rem; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
@@ -313,9 +440,24 @@ input:checked + .slider:before {
     function search() {
         const q = document.getElementById("search").value.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ /g, "_");
         const ul = document.getElementById("results");
+        const searchInput = document.getElementById("search");
         ul.innerHTML = "";
+        ul.classList.remove("active");
+        
+if (q.length > 1) {
+        searchInput.classList.add("has-input");
+    } else {
+        searchInput.classList.remove("has-input");
+    }
         if(q.length < 2) return;
+        
+        let result_count = 0;
+        
         all_data.forEach(v => {
+            if (result_count >= 5) {
+                return;
+            }
+            
             const kurdish = normalize_word(v[0]);
             const turkishword = normalize_word(v[2]);
             if((search_mode === "kurdish" && kurdish.includes(q)) || (search_mode === "turkish" && turkishword.includes(q))) {
@@ -324,8 +466,17 @@ input:checked + .slider:before {
                 const li = document.createElement("li");
                 li.innerHTML = '<a href="sayfalar/' + filename + '.html">' + shown + '</a>';
                 ul.appendChild(li);
+                
+                result_count++;
             }
         });
+
+        if (ul.children.length > 0) {
+            ul.classList.add("active");
+        } else {
+            ul.innerHTML = '<li style="color: #666; font-style: italic;">Eşleşen sonuç bulunamadı.</li>';
+            ul.classList.add("active");
+        }
     }
     
     window.onload = function() {

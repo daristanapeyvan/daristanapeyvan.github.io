@@ -381,9 +381,11 @@ input:checked + .slider:before {
         </div>
     </div>
     <div class="container">
-        <img src="resources/banner.png" alt="Daristana Peyvan logosu" class="logo-svg">
-        <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
-<div class="switcher">
+        <div class="search-wrapper">
+        <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
+        <ul id="results"></ul> 
+    </div>
+    <div class="switcher">
     <span class="lang-label" id="label-kurd">Kürtçe (Kurmanci)</span>
     
     <label class="toggle-switch">
@@ -392,17 +394,13 @@ input:checked + .slider:before {
     </label>
     <span class="lang-label" id="label-turkish">Türkçe</span>
 </div>
-
-    <div class="search-wrapper">
-        <input type="text" id="search" placeholder="Aramak için bir sözcük girin..." oninput="search()">
-        <ul id="results"></ul> 
-    </div>
-
-        <div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: 1328 | BETA</div>
+        <img src="resources/banner.png" alt="Daristana Peyvan logosu" class="logo-svg">
+        <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
         <div class="indirkutusu"><a href="indir.html" target="_blank">
     <img alt="yükleme logosu" src="./resources/down.png" class="indir">
 </a></div>
 <div id="suggested_word" style="text-align:center; padding-top: 15px;"></div>
+<div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: 1328 | BETA</div>
 <div class="footer">
     <div style="text-align:center; font-size: 0.875rem; color: #999; padding-top: 10px;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
 </div>

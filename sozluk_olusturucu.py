@@ -638,7 +638,6 @@ with open(index_path, "w", encoding="utf-8") as index:
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }}
 
-
 .slider:before {{
     position: absolute;
     content: "";
@@ -839,7 +838,7 @@ input:checked + .slider:before {{
         <div class="indirkutusu"><a href="indir.html" target="_blank">
     <img alt="yükleme logosu" src="./resources/down.png" class="indir">
 </a></div>
-        <div id="suggested_word"></div>
+        <div id="suggested_word" style="padding-top: 15px;></div>
     </div>
     <div class="footer">
     <div style="text-align:center; font-size: 0.875rem; color: #999;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>

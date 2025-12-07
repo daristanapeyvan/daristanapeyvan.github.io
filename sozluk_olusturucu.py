@@ -150,7 +150,7 @@ for data in all_data:
 <head>
     <meta charset="UTF-8">
     <title>{kurdish} - {turkish} Daristana Peyvan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="../resources/favicon.svg">
     <meta name="description" content="Kürtçe {kurdish} Türkçe ne demek? Türkçe {turkish} Kürtçe ne demek? Anlamı, manası, kelimeleri bul ve keşfet. ">
@@ -320,7 +320,7 @@ for letter in sorted_letters:
     <title>'{letter}' Harfiyle Başlayan Kürtçe Kelimeler - Daristana Peyvan</title>
     <meta name="robots" content="index, follow">
     <meta name="description" content="{letter} Harfiyle başlayan Kürtçe kelimeleri görüntüleyin.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         .container a {{ text-decoration: none; color: #21421e; font-weight: bold; }}
@@ -347,7 +347,6 @@ for letter in sorted_letters:
     font-weight: bold;
     margin: 5px;
         }}
-
         .home-link img {{
     vertical-align: middle;
     filter: invert(85%);
@@ -408,7 +407,7 @@ alfabetik_dizin_html_content = f"""
     <title>Alfabetik Sözlük Dizinleri - Daristana Peyvan</title>
     <meta name="robots" content="index, follow">
     <meta name="description" content="Kürtçe alfabetik sözlük sayfalarını görüntüleyin ve keşfedin.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         h1 {{ text-align: center; margin-bottom: 30px; }}
@@ -517,7 +516,7 @@ with open(index_path, "w", encoding="utf-8") as index:
     <title>Daristana Peyvan Kürtçe - Türkçe Sözlük</title>
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="resources/favicon.svg" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         h2 {{ font-size: 1.75rem; }}
@@ -814,7 +813,7 @@ for key, info in categories.items():
     <meta name="description" content="Kürtçe {info["title"]}">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         h1 {{
@@ -923,7 +922,7 @@ with open(kelimekutusu_path, "w", encoding="utf-8") as f:
     <meta name="description" content="Kelime Kutusu ile çeşitli kelimelere erişin.">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         body {{
@@ -1039,7 +1038,7 @@ for page, title, content, extracontent in [
     <meta name="description" content="{title} Sayfası">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="resources/favicon.svg" type="image/xml+svg">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     {joint_css}
     <style>
         h1 {{ font-size: 32px; margin-bottom: 20px; }}

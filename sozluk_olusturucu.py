@@ -610,6 +610,26 @@ with open(index_path, "w", encoding="utf-8") as index:
         font-weight: bold; color: #21421e;
         }}
 
+.alphabetical-index-btn {{
+            width: 170px;
+            height: 75px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(180deg, #21421e, #122010); 
+            color: white; 
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }}
+        .alphabetical-index-btn:hover {{
+            background-color: #4a8244;
+        }}
+        
 .toggle-switch {{
     position: relative;
     display: inline-block;
@@ -663,18 +683,13 @@ input:checked + .slider:before {{
         color: #21421e;  
         opacity: 1;
 }}
-        .main-heading {{
-        text-align: center;
-        margin-bottom: 25px;
-        color: #21421e;
-        }}
+
 
         .logo-svg {{
     display: block;             
     margin: 0 auto 14px;          
     height: auto;               
-    max-height: 140px;
-    opacity: 0.5;   
+    max-height: 140px;  
     margin-top: 5px;            
 }}
         ul {{ list-style-type: none; padding: 0; }}
@@ -683,7 +698,17 @@ input:checked + .slider:before {{
             position: relative;
             width: 50%; 
             margin: 0 auto 25px auto; 
-        }}
+        }}    
+        
+        .action-buttons-wrapper {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }}
 
         #results {{
             min-height: 0; 
@@ -755,7 +780,7 @@ input:checked + .slider:before {{
     border-radius: 15px; 
     height: 75px; 
     transition: transform 0.3s ease;
-    margin-top: 15px;
+    vertical-align: middle;
         }}
 
         .indir:hover {{
@@ -767,6 +792,36 @@ input:checked + .slider:before {{
       .indir {{
           display: none;
       }}
+    }}
+    
+        .info-boxes {{
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        gap: 15px; 
+        margin-top: 35px;
+        margin-bottom: 25px;
+    }}
+    .info-box-item {{
+        width: 40%; 
+        box-sizing: border-box;
+        padding: 15px 20px;
+        background-color: #21421e;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: white; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }}
+    .info-box-item strong {{
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: white; 
+        font-size: 1.2rem;
+    }}
+    .info-box-item a {{
+        color: white; 
+        text-decoration: none;
     }}
 
         @media (max-width: 600px) {{
@@ -802,6 +857,16 @@ input:checked + .slider:before {{
         #search {{
         width: 100%; 
     }}
+        .action-boxes {{
+            flex-wrap: wrap;
+        }}
+        .info-boxes {{
+             flex-direction: column; 
+             align-items: center; 
+        }}
+        .info-box-item {{
+            width: 90%; 
+        }}
     }}
 
     </style>
@@ -831,15 +896,25 @@ input:checked + .slider:before {{
     <span class="lang-label" id="label-turkish">Türkçe</span>
 </div>
         <img src="resources/banner.png" alt="Daristana Peyvan logosu" class="logo-svg">
-        <h2 class="main-heading">Kürtçe - Türkçe Sözlük</h2>
-        <div class="indirkutusu"><a href="indir.html" target="_blank">
-    <img alt="yükleme logosu" src="./resources/down.png" class="indir">
-</a></div>
+                <div class="info-boxes">
+            <div class="info-box-item">
+                <strong>Göz at</strong>
+                <span id="suggested_word_display"></span> 
+            </div>
+            <div class="info-box-item">
+                <strong>Toplam Kelime Sayısı</strong>
+                <span id="word_count_display"></span>
+            </div>
+        </div>
+<div class="action-buttons-wrapper"> 
+            <a href="indir.html" target="_blank">
+                <img alt="yükleme logosu" src="./resources/down.png" class="indir">
+            </a>
+            <a href="alfabetik_dizin.html" class="alphabetical-index-btn">
+                Alfabetik Dizin
+            </a>
+        </div>
 <div id="suggested_word" style="text-align:center; padding-top: 15px;"></div>
-<div style="text-align:center; font-size: 0.9375rem; color: #21421e; padding-top: 15px; font-weight: bold;">Toplam Kelime Sayısı: 1328 | BETA</div>
-<div class="footer">
-    <div style="text-align:center; font-size: 0.875rem; color: #999; padding-top: 10px;">Sevgi ile hazırlandı<br>Bi hezkirin hate amede kirin ❤️</div>
-</div>
     <script src="all_data.js"></script>
     <script>
     let search_mode = "kurdish";
@@ -913,11 +988,13 @@ if (q.length > 1) {{
     }}
     
     window.onload = function() {{
+        const total_words = all_data.length;
+        document.getElementById("word_count_display").innerHTML = total_words + " | BETA";
         const random_word = all_data[Math.floor(Math.random() * all_data.length)];
         const kurdish = random_word[0];
         const filename = normalize_word(kurdish.split(",")[0].trim());
-        const link = '<strong>Göz at:</strong> <a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
-        document.getElementById("suggested_word").innerHTML = link;
+        const link = '<a href="sayfalar/' + filename + '.html">' + kurdish + '</a>';
+        document.getElementById("suggested_word_display").innerHTML = link;
         
         document.getElementById("label-kurd").classList.add("active");
     }}
